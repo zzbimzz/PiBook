@@ -18,6 +18,8 @@
     />
     <link rel="stylesheet" href="./assets/css/grid.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
   <body>
     <div class="app">
@@ -35,6 +37,7 @@
                     class="header__nav-banner-img"
                 /></a>
               </div>
+              <!-- End Banner -->
               <div class="header__with-search">
                 <div class="header__logo">
                   <a href="" class="header__logo-link">
@@ -82,11 +85,27 @@
                         <i class="fa-solid fa-user"></i>
                         <span>Tài khoản</span>
                       </a>
+                      <!-- Menu item -->
+                      <ul class="header__info-menu">
+                        <li class="header__info-item">
+                          <a href="" class="header__info-item-link">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span>Đăng nhập</span>
+                          </a>
+                        </li>
+
+                        <li class="header__info-item">
+                          <a href="" class="header__info-item-link">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>Đăng ký</span>
+                          </a>
+                        </li>
+                      </ul>
+                      <!-- End menu -->
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- End Banner -->
             </div>
           </div>
         </header>
@@ -94,12 +113,320 @@
       <!-- End Header -->
       <!--  -->
       <!-- Start Container -->
-      <div class="app__container"></div>
+      <div class="app__container">
+        <div class="grid">
+          <div class="grid__row app__content">
+            <div class="grid__column-2-4">
+              <nav class="category">
+                <h3 class="category__heading">Danh mục sản phẩm</h3>
+                <ul class="category__list">
+                  <li
+                    class="category__item-active category__item category-hover"
+                  >
+                    <a href="" class="category__item-link"> Sách truyện </a>
+                    <div class="category__item-active-mennu"></div>
+                  </li>
+                  <li class="category__item-active category__item">
+                    <a href="" class="category__item-link">
+                      Sách sale theo chủ đề
+                    </a>
+                  </li>
+                  <li class="category__item-active category__item">
+                    <a href="" class="category__item-link">
+                      Sách theo tác giả
+                    </a>
+                  </li>
+                  <li class="category__item">
+                    <a href="" class="category__item-link">
+                      Sách theo nhà cung cấp
+                    </a>
+                  </li>
+                  <li class="category__item">
+                    <a href="" class="category__item-link"> Quà tặng </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="grid__column-2-8">
+              <!-- Start Slide -->
+              <div class="content__slide">
+                <div class="mySlides fade">
+                  <img
+                    src="https://pibook.vn/upload/banner/truy%E1%BB%87n%20tranh%20tu%E1%BA%A7n.png"
+                    class="content__slide-img"
+                  />
+                </div>
+
+                <div class="mySlides fade">
+                  <img
+                    src="https://pibook.vn/upload/banner/z4569007622520_4fee2d034a3a1addbd891ff266a727ab.jpg"
+                    class="content__slide-img"
+                  />
+                </div>
+
+                <div class="mySlides fade">
+                  <img
+                    src="https://pibook.vn/upload/banner/backtoschool.png"
+                    class="content__slide-img"
+                  />
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+              </div>
+              <br />
+              <div style="text-align: center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+              </div>
+
+              <!-- End Slide -->
+            </div>
+            <!-- Start Menu -->
+            <div class="content__menu">
+              <div class="menu-app">
+                <ul class="menu-app-list">
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i
+                        class="fa-solid fa-bolt-lightning custom-icon icon-flashsale"
+                      ></i>
+                      <p>Flash Sale</p></a
+                    >
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i class="fa-solid fa-fire custom-icon icon-hotdeal"></i>
+                      <p>Hot deal</p></a
+                    >
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i class="fa-solid fa-car custom-icon icon-toy"></i>
+                      <p>Đồ chơi</p></a
+                    >
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i class="fa-solid fa-book custom-icon icon-book"></i>
+                      <p>Văn học</p></a
+                    >
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i class="fa-solid fa-book-open custom-icon icon-toy"></i>
+                      <p>Sách hay</p></a
+                    >
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i class="fa-solid fa-child custom-icon icon-child"></i>
+                      <p>Thiếu nhi</p></a
+                    >
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i
+                        class="fa-solid fa-money-check-dollar custom-icon icon-dollars"
+                      ></i>
+                      <p>Kinh tế</p></a
+                    >
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="">
+                      <i
+                        class="fa-brands fa-servicestack custom-icon icon-certificate"
+                      ></i>
+                      <p>Tâm lý</p></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- End Menu -->
+          </div>
+          <div class="content__main">
+            <div class="main-product">
+              <h2 class="main-product-text main-backgr">DEAL HOT</h2>
+              <div class="main-menu">
+                <h4 class="main-menu-text">
+                  <a href="" class="main-menu-link btn">Deal hot trong ngày</a>
+                </h4>
+                <h4 class="main-menu-text">
+                  <a href="" class="main-menu-link btn">Sách hot/Giảm sốc</a>
+                </h4>
+              </div>
+              <div class="main-product-list">
+                <div class="list-Item grid__row">
+                  <!-- <div class="grid__column-2-4">
+                    <a href="" class="home-product-all">
+                      <div class="home-product-item">
+                        <div
+                          class="home-product-item__img"
+                          style="
+                            background-image: url(https://i.pinimg.com/564x/7a/9a/e8/7a9ae8ea742c4703116ce48198b38a6e.jpg);
+                          "
+                        ></div>
+                        <h4 class="home-product-item__name">Nhà Giả Kim</h4>
+                        <div class="home-product-item__price">
+                          <span class="home-product-item__price-old"
+                            >1.000.000d
+                          </span>
+                          <span class="home-product-item__price-current"
+                            >500.000d
+                          </span>
+                        </div>
+                        <div class="home-product-item__action">
+                          <div class="home-product-item__rating">
+                            <i
+                              class="home-product-item__star--gold fa-solid fa-star"
+                            ></i>
+                            <i
+                              class="home-product-item__star--gold fa-solid fa-star"
+                            ></i>
+                            <i
+                              class="home-product-item__star--gold fa-solid fa-star"
+                            ></i>
+                            <i
+                              class="home-product-item__star--gold fa-solid fa-star"
+                            ></i>
+                            <i
+                              class="home-product-item__star--gold fa-solid fa-star"
+                            ></i>
+                          </div>
+                        </div>
+                        <div class="home-product-item__favorite">
+                          <i class="fa-solid fa-check"></i>
+                          <span> Yêu thích</span>
+                        </div>
+                        <div class="home-product-item__sale-up">
+                          <span class="home-product-item__sale-up-percent"
+                            >-10%</span
+                          >
+                        </div>
+                      </div>
+                    </a>
+                  </div> -->
+                </div>
+                <div class="home-product-btn">
+                  <a href="" class="home-btn-link btn">Xem thêm </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- End Container -->
       <!--  -->
       <!-- Start Footer -->
-      <footer class="app_footer"></footer>
+      <footer class="app_footer">
+        <div class="grid">
+          <div class="footer-info">
+            <div class="footer__letter">
+              <div class="text-letter">
+                <span>
+                  <i
+                    style="padding-right: 5px"
+                    class="fa-solid fa-envelope"
+                  ></i>
+                  ĐĂNG KÝ NHẬN BẢN TIN
+                </span>
+              </div>
+            </div>
+
+            <div class="footer__input">
+              <input type="gmail" class="footer__input-text" placeholder="" />
+            </div>
+            <button class="footer-btn">Đăng ký</button>
+          </div>
+          <div class="footer-helps">
+            <div class="grid__column-2-4">
+              <a href="" class="header__logo-link">
+                <img
+                  src="https://pibook.vn/upload/logo-trong-suot%202.png"
+                  alt=""
+                  class="header__logo-link-img"
+                />
+              </a>
+              <p style="font-size: 1.6rem; font-weight: 300">
+                Thanh Xuân - Hà Nội
+                <br />
+                GPKD: 0105990058
+              </p>
+              <a href="" class="certificate">
+                <img
+                  class="certificate-img"
+                  src="https://pibook.vn/resource/images/dat-thong-bao.png"
+                  alt=""
+                />
+              </a>
+              <p class="footer-icon">
+                <a href="" class="btn btn-facebook"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="" class="btn btn-instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="" class="btn btn-youtube"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="" class="btn btn-twitter"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+              </p>
+            </div>
+            <div class="grid__column-2-8">
+              <div class="footer-service">
+                <div class="service-info">
+                  <h4 class="service-info__heading">Dịch vụ</h4>
+                  <p><a href="">Điều khoản sử dụng</a></p>
+                  <p><a href="">Chính sách bảo mật</a></p>
+                  <p><a href="">Giới thiệu Pibook</a></p>
+                </div>
+                <div class="serice-info">
+                  <h4 class="service-info__heading">Hỗ trợ</h4>
+                  <p><a href="">Điều khoản sử dụng</a></p>
+                  <p><a href="">Chính sách bảo mật</a></p>
+                  <p><a href="">Giới thiệu Pibook</a></p>
+                </div>
+                <div class="serice-info">
+                  <h4 class="service-info__heading">Tài khoản của tôi</h4>
+                  <p><a href="">Điều khoản sử dụng</a></p>
+                  <p><a href="">Chính sách bảo mật</a></p>
+                  <p><a href="">Giới thiệu Pibook</a></p>
+                </div>
+                <div class="serice-info">
+                  <h4 class="service-info__heading">Liên hệ</h4>
+                  <p>
+                    <a href="">
+                      <i class="fa-solid fa-phone"></i>
+                      Hotline: 024 6329 6389</a
+                    >
+                  </p>
+                  <p>
+                    <a href="">
+                      <i class="fa-solid fa-envelope"></i>
+                      Email: hotro@pibook.vn</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-license">
+            <div class="footer-license-text">
+              <p>© 2015 - Bản quyền của Công Ty TNHH PIBOOK</p>
+              <p>
+                Giấy chứng nhận Đăng ký Kinh doanh số 0105990058 do Sở Kế Hoạch
+                và Đầu Tư Thành phố Hà Nội cấp ngày 14/09/2012
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
       <!-- End Footer -->
+      <script src="./assets/js/main.js"></script>
     </div>
   </body>
 </html>

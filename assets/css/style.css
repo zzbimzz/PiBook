@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   margin: 0 8px;
+  box-shadow: 2px 2px #ccc;
 }
 .header__search {
   flex: 1;
@@ -57,12 +58,255 @@
   font-size: 1.8rem;
 }
 
-/* color: #ffc266; */
-
 .header__info-link {
+  position: relative;
   text-decoration: none;
   color: #fba31a;
 }
+.header__info-log-wrap-icon:hover .header__info-menu {
+  display: block;
+}
 .header__info-link:hover {
   color: #ffc266;
+}
+.header__info-menu {
+  position: absolute;
+  z-index: 1;
+  padding-left: 0;
+  /* top: calc(100% + 4px); */
+  /* right: 0; */
+  background-color: #ffffff;
+  border-radius: 2px;
+  width: 160px;
+  list-style: none;
+  box-shadow: 0 1px 2px #e0e0e0;
+  display: none;
+}
+.header__info-menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -22px;
+  /* right: 0; */
+  width: 60%;
+  height: 26px;
+  /* background-color: red; */
+}
+.header__info-item {
+  display: flex;
+}
+.header__info-item-link {
+  text-decoration: none;
+  color: #545454;
+}
+.header__info-item span {
+  font-size: 1.4rem;
+  padding: 8px 16px;
+
+  display: inline-block;
+}
+
+/* Container */
+
+.category {
+  border-radius: 2px;
+}
+.app__content {
+  padding-top: 36px;
+}
+.category__heading {
+  font-size: 1.8rem;
+  color: #fffdf5;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  background-color: #ef8400;
+}
+.category__list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 12px;
+}
+.category__item-link {
+  position: relative;
+  font-size: 1.6rem;
+  color: var(--text--color);
+  text-decoration: none;
+  display: block;
+  padding: 14px 16px;
+  transition: right linear 0.1s;
+  right: 0;
+}
+.category__item-link:hover {
+  background-color: #e5f5ff;
+  color: #fba31a;
+}
+/* .category__item-active .category__item-link {
+  color: var(--primary--color);
+} */
+.category__item-active .category__item-link::before {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  content: "";
+  border: 4px solid;
+  transform: translateY(-50%);
+  border-color: transparent transparent transparent #707070;
+}
+.content__slide {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.content__slide-img {
+  width: 100%;
+}
+/* slide */
+
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* end slide */
+.menu-list-item a {
+  text-decoration: none;
+  color: #545454;
+}
+
+/* Footer */
+.footer-info {
+  flex: 1;
+  justify-content: center;
+  background-color: #3c3c3c;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.footer__letter {
+  border-radius: 2px;
+
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.text-letter {
+  font-size: 1.8rem;
+  color: #f5f5f5;
+  padding-right: 50px;
+}
+.footer__input {
+  /* flex: 1;
+  width: 100%; */
+  width: 40%;
+  position: relative;
+  height: 40px;
+}
+.footer__input-text {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  color: var(--text--color);
+  padding: 0 16px;
+}
+.footer-btn {
+  height: 40px;
+  border: none;
+  background-color: #fba31a;
+  cursor: pointer;
+  font-size: 1.8rem;
+  width: 80px;
+  outline: none;
+}
+.certificate-img {
+  height: 55px;
+  width: 155px;
+}
+.footer-helps {
+  display: flex;
+}
+.footer-service {
+  display: flex;
+  justify-content: space-evenly;
+}
+.service-info__heading {
+  font-size: 1.8rem;
+}
+footer a {
+  text-decoration: none;
+  color: #212121;
+  transition: 0.2s;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.footer-license-text {
+  font-size: 1.6rem;
+  color: #8e8e8e;
+  font-weight: 300;
 }
