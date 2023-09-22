@@ -50,3 +50,10 @@ html {
   padding-right: 5px;
   width: 83.33%;
 }
+.col-3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
