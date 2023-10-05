@@ -1,3 +1,16 @@
+.bg-white {
+  background-color: #fff;
+}
+.bg-light {
+  background-color: #f8f9fa;
+}
+.mag-bt-5per {
+  margin-bottom: 5%;
+}
+.wi-input {
+  width: 80%;
+}
+
 /* Menu */
 .content__menu {
   width: 100%;
@@ -246,6 +259,15 @@
   text-align: center;
   margin: 40px 0;
 }
+.home-btn-link-cart {
+  font-size: 1.6rem;
+
+  background-color: #ef8400;
+  color: #f5f5f5;
+  padding: 10px 10px;
+  float: right;
+  text-decoration: none;
+}
 .home-btn-link {
   font-size: 1.8rem;
 
@@ -283,3 +305,4 @@
 footer a:hover {
   color: #ef8400;
 }
+/* login */

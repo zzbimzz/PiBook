@@ -124,7 +124,7 @@ const listItem = document.querySelector(".list-Item.grid__row");
 const htmls = productItems.map((productItem) => {
   return `
   <div class="grid__column-2-4">
-  <a href="" class="home-product-all">
+  <a href="./product.html" class="home-product-all">
     <div class="home-product-item">
       <div
         class="home-product-item__img"
