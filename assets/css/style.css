@@ -95,6 +95,9 @@
 .header__info-item {
   display: flex;
 }
+.header__info-notify-wrap-icon {
+  position: relative;
+}
 .header__info-item-link {
   text-decoration: none;
   color: #545454;
@@ -106,12 +109,99 @@
   display: inline-block;
 }
 
+/* Thong bao */
+.header__notification {
+  position: absolute;
+  top: 118%;
+  right: 0;
+  width: 370px;
+  border: 1px solid #d3d3d3;
+  background-color: #fff;
+  cursor: default;
+  transform-origin: calc(100% - 20px) top;
+  animation: headerNotify ease-in 0.25s;
+  will-change: opacity, transform;
+  display: none;
+  z-index: 1;
+}
+.header__notification-head {
+  height: 40px;
+  background-color: #fff;
+}
+.header__notification-head h3 {
+  color: #999;
+  margin: 0 0 0 12px;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 40px;
+}
+.header__notification-item--viewed {
+  background-color: rgba(238, 75, 43, 0.1);
+}
+.header__notification-item {
+  display: flex;
+}
+.header__notification-item:hover {
+  background-color: #f7f7f7;
+}
+.header__notification-link {
+  display: flex;
+  padding: 12px;
+  width: 100%;
+  text-decoration: none;
+}
+.header__notification-img {
+  width: 48px;
+  object-fit: contain;
+}
+.header__notification-info {
+  margin-left: 12px;
+}
+.header__notification-list {
+  padding-left: 0;
+  height: 50vh;
+  overflow-y: auto;
+}
+.header__notification-name {
+  display: block;
+  font-size: 14px;
+  color: #34363e;
+  margin-bottom: 8px;
+}
+.header__notification-descrio {
+  display: block;
+  font-size: 12px;
+  color: #ccc;
+}
+.header__info-notify-wrap-icon:hover .header__notification {
+  display: block;
+}
+.header__notification-footer {
+  display: flex;
+}
+.header__notification-btn {
+  text-decoration: none;
+  color: #34363e;
+  width: 100%;
+  padding: 8px 0px;
+  text-align: center;
+}
+.header__notification::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: -10px;
+  width: 90px;
+  height: 20px;
+}
+/* Gio Hang */
 .header-cart-list {
   position: absolute;
   top: calc(100% + 12px);
   right: 0px;
   background-color: #fff;
-  width: 400px;
+  width: 350px;
   border-radius: 3px;
   box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
   display: none;
@@ -126,7 +216,6 @@
 .header-cart-list-no-cart-msg {
   display: block;
   font-size: 1.6rem;
-
   text-align: center;
 }
 .header-cart-notice {
@@ -235,14 +324,18 @@
   font-size: 1.2rem;
   font-weight: 300;
 }
+
 /* Container */
 
 .app__content {
   padding-top: 36px;
 }
+
 .category {
   border-radius: 2px;
+  position: relative;
 }
+
 .category__heading {
   font-size: 1.8rem;
   color: #fffdf5;
@@ -251,11 +344,13 @@
   margin-top: 0;
   background-color: #ef8400;
 }
+
 .category__list {
   list-style: none;
   padding-left: 0;
   margin-left: 12px;
 }
+
 .category__item-link {
   position: relative;
   font-size: 1.6rem;
@@ -266,13 +361,12 @@
   transition: right linear 0.1s;
   right: 0;
 }
+
 .category__item-link:hover {
   background-color: #e5f5ff;
   color: #fba31a;
 }
-/* .category__item-active .category__item-link {
-  color: var(--primary--color);
-} */
+/* Tạo hình mũi tên */
 .category__item-active .category__item-link::before {
   position: absolute;
   top: 50%;
@@ -282,39 +376,78 @@
   transform: translateY(-50%);
   border-color: transparent transparent transparent #707070;
 }
-.category__item {
-  position: relative; /* Để xác định vị trí cho phần con */
+
+/* form hiển thị các thể loại */
+@media (min-width: 992px) {
+  li.has-submenu:hover .megasubmenu {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+  }
+}
+@media (min-width: 992px) {
+  .megasubmenu {
+    left: 97%;
+    top: 0px;
+    min-height: 100%;
+    min-width: 500px;
+    box-shadow: 2px 2px 2px 0px #e2e2e2;
+  }
 }
 
-.category__item-active-submennu.dropdown-menu {
-  display: none; /* Ẩn nội dung mặc định của submenu */
-  position: absolute; /* Đặt submenu theo vị trí tuyệt đối */
-  top: 0; /* Đặt vị trí trên cùng của submenu bằng với thẻ li cha */
-  margin-left: 29px;
-  left: 100%; /* Đặt submenu bên phải của thẻ li cha */
-  width: 1000px; /* Đặt chiều rộng của submenu */
-  background-color: #ccc; /* Màu nền của submenu */
-  z-index: 1; /* Đặt độ cao Z-index để hiển thị trên các phần khác */
-  height: 400px;
-  top: -115%;
+@media (min-width: 992px) {
+  .dropdown-menu {
+    margin: 0;
+  }
 }
+.megasubmenu {
+  padding: 20px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+  border-radius: 0;
+  border: 0;
+  z-index: 0;
+}
+.dropdown-menu {
+  position: absolute;
+  /* top: 100%;
+  left: 0; */
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0rem 3.5rem;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
 .submenu-item {
   padding: 20px;
 }
 
-.category__item:hover .category__item-active-submennu.dropdown-menu {
-  display: block; /* Hiển thị submenu khi hover vào thẻ li cha */
-}
-.category__item::after {
+/* .category__item:hover .category__item-active-submennu.dropdown-menu {
+  display: block;
+} */
+/* .category__item::after {
   content: "";
   display: block;
   position: absolute;
   top: 0px;
   right: -40px;
   width: 30%;
-  height: 34px;
-  /* background-color: red; */
-}
+  height: 230px;
+
+} */
 
 .content__slide {
   max-width: 1000px;
