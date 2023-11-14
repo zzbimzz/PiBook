@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="./assets/css/grid.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/base.css" />
-
+    <link rel="stylesheet" href="./assets/css/cart.css" />
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
-  <body ng-app="AppBanHang" ng-controller="HomeLogin">
+  <body ng-app="AppBanHang" ng-controller="CartController">
     <div class="app">
       <!-- Start Header -->
       <div class="app__header">
@@ -137,7 +137,7 @@
                     <a href="./index.html" title="Tới trang chủ">Trang chủ</a>
                   </li>
                   <li class="home-item">
-                    <strong>ĐĂNG NHẬP</strong>
+                    <strong>GIỎ HÀNG</strong>
                   </li>
                 </ol>
               </div>
@@ -147,81 +147,92 @@
         <div class="content-main">
           <div class="grid">
             <div class="grid__row">
-              <div class="home-main">
-                <div class="home-login grid__row">
-                  <div class="grid__column-6 login-form-1 bg-light">
-                    <h3>Đăng Nhập</h3>
-                    <!-- form Login -->
-                    <form action="" id="form__login">
-                      <div class="form-login-account mag-bt-5per">
-                        <input
-                          name="username"
-                          type="text"
-                          placeholder="Email/SĐT*"
-                          class="form-control wi-input"
-                        />
-                      </div>
-
-                      <div class="form-login-password mag-bt-5per">
-                        <input
-                          name="password"
-                          type="password"
-                          placeholder="Mật khẩu*"
-                          class="form-control wi-input"
-                        />
-                      </div>
-                      <button type="submit" class="form-login-btn">
-                        <div class="home-product-btn">
-                          <a href="" class="home-btn-link btn">Đăng Nhập </a>
-                        </div>
-                      </button>
-                    </form>
+              <div class="col-md-8 cart-view">
+                <div
+                  class="cart-content__item"
+                  ng-repeat="item in cartItems"
+                  style="padding-top: 20px"
+                >
+                  <div class="col-3 col-md-2">
+                    <img
+                      src="{{item.imageBook}} "
+                      class="img-cart"
+                      style="width: 120px"
+                    />
                   </div>
-                  <div class="grid__column-6 login-form-2">
-                    <h3>Đăng Ký Thành Viên</h3>
-                    <form action="" id="form-login">
-                      <div class="form-login-account mag-bt-5per">
-                        <input
-                          type="text"
-                          placeholder="Họ tên*"
-                          class="form-control wi-input"
-                        />
+                  <div class="col-5 col-md-8">
+                    <a href="" class="link-title">{{item.title}}</a>
+                    <div
+                      class="col-price font-weight-bold"
+                      style="padding-top: 16px"
+                    >
+                      {{item.price}}
+                      <p
+                        class="text-sm product-price-origin"
+                        style="padding-top: 16px"
+                      >
+                        {{item.price}}
+                      </p>
+                    </div>
+                    <div class="catalog-product-details-discount">
+                      <div class="product-view-quantity-box-block">
+                        <a ng-click="decreaseQuantity($index)">
+                          <span class="btnGiam">
+                            <i class="fa-solid fa-minus"></i>
+                          </span>
+                        </a>
+                        <span class="quanty-product">{{item.quantity}}</span>
+                        <a ng-click="increaseQuantity($index)">
+                          <span class="btnTang">
+                            <i class="fa-solid fa-plus"></i>
+                          </span>
+                        </a>
                       </div>
-
-                      <div class="form-login-password mag-bt-5per">
-                        <input
-                          type="text"
-                          placeholder="Email*"
-                          class="form-control wi-input"
-                        />
-                      </div>
-                      <div class="form-login-password mag-bt-5per">
-                        <input
-                          type="tel"
-                          placeholder="Số điện thoại*"
-                          class="form-control wi-input"
-                        />
-                      </div>
-                      <div class="form-login-password mag-bt-5per">
-                        <input
-                          type="password"
-                          placeholder="Mật khẩu*"
-                          class="form-control wi-input"
-                        />
-                      </div>
-                      <div class="form-login-password mag-bt-5per">
-                        <input
-                          type="password"
-                          placeholder="Nhập lại mật khẩu*"
-                          class="form-control wi-input"
-                        />
-                      </div>
-                      <div class="form-login-btn">
-                        <div class="home-product-btn">
-                          <a href="" class="home-btn-link btn">Đăng Ký </a>
-                        </div>
-                      </div>
-                    </form>
+                      <button
+                        class="btn btn-light"
+                        ng-click="removeItem($index)"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-4 col-md-2">
+                    <span class="text-danger font-weight-bold">
+                      {{item.price * item.quantity}} đ</span
+                    >
+                  </div>
+                  <!-- thứ 2 -->
+                </div>
+              </div>
+              <div class="col-md-4 payment-view">
+                <div class="payment-view__detail">
+                  <h5>Thông tin giỏ hàng</h5>
+                  <div class="text-sm payment-detail">
+                    <p>
+                      <label for="">Sản phẩm :</label>
+                      <strong class="px-3 text-right"
+                        >{{ getTotalQuantity() }}</strong
+                      >
+                    </p>
+                    <p>
+                      <label for="">Tổng tiền :</label>
+                      <strong class="px-3 text-right"
+                        >{{ getTotalPrice() }} đ</strong
+                      >
+                    </p>
+                    <p>
+                      <label for="">Giảm giá :</label>
+                      <strong class="px-3 text-right">1</strong>
+                    </p>
+                    <hr style="border-color: rgb(234, 234, 234)" />
+                    <p>
+                      <strong class="text-bold text-success"
+                        >Thanh toán:</strong
+                      >
+                      <strong class="px-3 text-danger text-right text-normal">
+                        {{ getTotalPrice() }} đ
+                      </strong>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -339,9 +350,10 @@
       </footer>
       <!-- End Footer -->
     </div>
-    <script src="./assets/js/angular.js"></script>
-    <script src="./assets/js/global.js"></script>
-
-    <script src="./assets/js/login.js"></script>
   </body>
+
+  <script src="./assets/js/angular.js"></script>
+  <script src="./assets/js/global.js"></script>
+  <script src="./assets/js/productdetail.js"></script>
+  <script src="./assets/js/cart.js"></script>
 </html>

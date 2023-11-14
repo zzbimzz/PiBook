@@ -27,6 +27,7 @@
   flex: 1;
   width: 100%;
   position: relative;
+  height: 100%;
 }
 .header__search-input-text {
   width: 100%;
@@ -38,6 +39,48 @@
   padding: 0 16px;
   border-radius: 3px;
 }
+/* Form hien thi danh sach khi tim kiem */
+.header__search-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: calc(100% - 16px);
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px #666;
+  z-index: 10;
+  display: none;
+}
+.header__search-menu-heading {
+  margin: 8px 12px;
+  font-size: 1.4rem;
+  color: #888;
+  font-weight: 400;
+}
+.header__search-list {
+  padding-left: 0;
+  list-style: none;
+  margin: 6px 0 0;
+}
+.header__search-list-item {
+  height: 38px;
+  padding: 0 12px;
+}
+.header__search-list-item:hover {
+  background-color: #007bff;
+}
+.header__search-list-item a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #212121;
+  line-height: 38px;
+}
+
+.header__search-input-text:focus-within ~ .header__search-menu {
+  display: block;
+}
+
+/* End form */
 .header__search-btn {
   height: 40px;
   border: none;
@@ -438,16 +481,24 @@
 /* .category__item:hover .category__item-active-submennu.dropdown-menu {
   display: block;
 } */
-/* .category__item::after {
+.category__item:last-child::after {
   content: "";
   display: block;
   position: absolute;
-  top: 0px;
+  top: 100px;
   right: -40px;
   width: 30%;
-  height: 230px;
-
-} */
+  height: 35px;
+}
+.category__item:first-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: -40px;
+  width: 30%;
+  height: 35px;
+}
 
 .content__slide {
   max-width: 1000px;
@@ -683,13 +734,14 @@ footer a {
   padding-right: 20px;
 }
 .product-content-left-big-img img {
+  height: 80%;
   width: 100%;
 }
 .product-content-left-small-img {
   width: 20%;
 }
 .product-content-left-small-img img {
-  width: 92%;
+  width: 85%;
   padding-bottom: 10px;
 }
 .product-list {

@@ -155,6 +155,7 @@
   will-change: transform;
 }
 .home-product-item img {
+  height: 75%;
   width: 100%;
 }
 /* .home-product-item__img {

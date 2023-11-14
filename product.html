@@ -19,9 +19,11 @@
     <link rel="stylesheet" href="./assets/css/grid.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/base.css" />
+
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
-  <body>
+
+  <body ng-app="AppBanHang" ng-controller="HomeProductDetail">
     <div class="app">
       <!-- Start Header -->
       <div class="app__header">
@@ -73,7 +75,7 @@
                   </div>
                   <div class="header__info-cart">
                     <div class="header__info-cart-wrap-icon">
-                      <a href="" class="header__info-link">
+                      <a href="/cart.html" class="header__info-link">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span>Giỏ hàng</span>
                       </a>
@@ -133,10 +135,13 @@
               <div class="home">
                 <ol class="home-list">
                   <li class="home-item">
-                    <a href="./index.html" title="Tới trang chủ">Trang chủ</a>
+                    <a href="./index.html" title="Tới trang chủ">Trang chủ </a>/
+                    <a href="#" title="Tới trang chủ">
+                      {{IDGenres.genreName}}</a
+                    >
                   </li>
                   <li class="home-item">
-                    <strong>Nhà Giả Kim</strong>
+                    <strong>{{IDGenres.title}}</strong>
                   </li>
                 </ol>
               </div>
@@ -149,12 +154,9 @@
               <div class="product-content grid__row">
                 <div class="product-content-left">
                   <div class="product-content-left-big-img">
-                    <img
-                      src="https://pibook.vn/upload/products/63114_11_06_20_HSJA2O66.jpg"
-                      alt=""
-                    />
+                    <img src="{{IDGenres.imageBook}}" alt="" />
                   </div>
-                  <div class="product-content-left-small-img">
+                  <!-- <div class="product-content-left-small-img">
                     <img
                       src="https://pibook.vn/upload/products/63114_11_06_20_HSJA2O66.jpg"
                       alt=""
@@ -171,14 +173,16 @@
                       src="https://pibook.vn/upload/products/63114_11_06_20_HSJA2O66.jpg"
                       alt=""
                     />
-                  </div>
+                  </div> -->
                 </div>
                 <div class="product-content-right">
                   <div class="product-content-right-product-name">
-                    <h3>Nhà Giả Kim</h3>
-                    <p>Nhà xuất bản: <a href="">NXB Tokuda</a></p>
-                    <p>Nhà phát hành: <a href="">Nhã Nam</a></p>
-                    <p>Tác giả: <a href="">Paulo Coelho</a></p>
+                    <h3>{{IDGenres.title}}</h3>
+                    <p>
+                      Nhà xuất bản: <a href="">{{IDGenres.supplierName}}</a>
+                    </p>
+                    <p>Nhà phát hành: <a href="">PiBook</a></p>
+                    <p>Tác giả: <a href="">{{IDGenres.authorName}}</a></p>
                   </div>
                   <div class="product-content-right-product-info">
                     <div class="product-info-rating mr-10">
@@ -201,7 +205,7 @@
                     </div>
                   </div>
                   <div class="product-content-right-product-price">
-                    <p>55.000 <sup>đ</sup></p>
+                    <p>{{IDGenres.price}} <sup>đ</sup></p>
                   </div>
                   <div class="product-content-right-product-quantity">
                     <div class="catalog-product-details-discount">
@@ -213,16 +217,8 @@
                           ><span class="btnGiam">
                             <i class="fa-solid fa-minus"></i> </span
                         ></a>
-                        <span class="quanty-product"> 0 </span>
-                        <!-- <input
-                          type="text"
-                          name="qty"
-                          id="qty"
-                          title="SL"
-                          class="input-text qty"
-                          value="1"
-                          maxvalue="99"
-                        /> -->
+                        <span class="quanty-product"> 1 </span>
+
                         <a
                           ><span class="btnTang">
                             <i class="fa-solid fa-plus"></i> </span
@@ -290,11 +286,13 @@
                     </ul>
                   </div>
                 </div>
+
                 <div class="product-cash-btn grid__column-6">
                   <button class="btn btn-add-to-cart width-35">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Thêm vào giỏ hàng
                   </button>
+
                   <button class="btn btn-order width-35">Mua ngay</button>
                 </div>
               </div>
@@ -305,7 +303,7 @@
       <!-- End Container -->
       <!--  -->
       <!-- Start Footer -->
-      <!-- <footer class="app_footer">
+      <footer class="app_footer">
         <div class="grid">
           <div class="footer-info">
             <div class="footer__letter">
@@ -409,9 +407,13 @@
             </div>
           </div>
         </div>
-      </footer> -->
+      </footer>
       <!-- End Footer -->
     </div>
   </body>
-  <script src="assets/js/product.js"></script>
+
+  <script src="./assets/js/angular.js"></script>
+  <script src="./assets/js/global.js"></script>
+
+  <script src="./assets/js/productdetail.js"></script>
 </html>
