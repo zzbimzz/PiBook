@@ -16,7 +16,7 @@ app.controller("HomeLogin", function ($scope, $http) {
       localStorage.setItem("account", JSON.stringify(response.data));
       response.data.role === false
         ? location.assign("/")
-        : location.assign("./admin/TongQuan.html");
+        : location.assign("./Admin/MainAdmin.html");
     });
   };
   function handleForm() {

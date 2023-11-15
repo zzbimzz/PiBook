@@ -149,8 +149,8 @@
             <div class="grid__row">
               <div class="col-md-8 cart-view">
                 <div
+                  ng-repeat="item in cartItems track by item.bookID"
                   class="cart-content__item"
-                  ng-repeat="item in cartItems"
                   style="padding-top: 20px"
                 >
                   <div class="col-3 col-md-2">

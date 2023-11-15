@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./assets/css/cart.css" />
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
-  <body>
+  <body ng-app="AppBanHang" ng-controller="PayController">
     <div class="app">
       <!-- Start Header -->
       <div class="app__header">
@@ -150,12 +150,197 @@
         <div class="content-main">
           <div class="grid">
             <div class="grid__row">
-              <div class="col-md-8">
-                <div id="payment-form" style="padding: 20px; font-size: 2.6rem">
+              <div class="col-md-8" style="padding: 20px; font-size: 1.6rem">
+                <div id="payment-form">
                   <h5>Địa chỉ giao hàng</h5>
                 </div>
+                <div class="form-group">
+                  <label for=""
+                    >Họ tên
+
+                    <span class="text-danger">*</span>
+                  </label>
+                  <input class="form-control" type="text" />
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label for=""
+                      >Email
+
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control" type="text" />
+                  </div>
+                  <div class="col-md-6">
+                    <label for=""
+                      >Số Điện Thoại
+
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control" type="text" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label for=""
+                      >Địa Chỉ
+
+                      <span class="text-danger">*</span>
+                    </label>
+                  </div>
+
+                  <div class="col-md-6 form-group">
+                    <select
+                      name="city"
+                      id="CityAddressDropdowList"
+                      class="form-control"
+                    >
+                      <option value="00">-- Chọn thành phố --</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <select
+                      name="city"
+                      id="CityAddressDropdowList"
+                      class="form-control"
+                    >
+                      <option value="00">-- Chọn thành phố --</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <select
+                      name="city"
+                      id="CityAddressDropdowList"
+                      class="form-control"
+                    >
+                      <option value="00">-- Chọn thành phố --</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <select
+                      name="city"
+                      id="CityAddressDropdowList"
+                      class="form-control"
+                    >
+                      <option value="00">-- Chọn thành phố --</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="">Ghi Chú </label>
+                  <textarea
+                    class="form-control"
+                    name=""
+                    id=""
+                    rows="3"
+                    data-ms-editor="true"
+                    spellcheck="false"
+                  ></textarea>
+                </div>
               </div>
-              <div class="col-md-4"></div>
+              <div class="col-md-4" style="padding: 20px; font-size: 1.6rem">
+                <div>
+                  <h5>Giỏ Hàng</h5>
+                  <div class="cart__details">
+                    <div class="cart-item row">
+                      <div class="cart-item-img col-3">
+                        <img
+                          src="https://pibook.vn/upload/products/nenktetrainghiem.jpg"
+                          alt=""
+                          class="img-fluid mx-auto"
+                        />
+                      </div>
+                      <div class="cart-item-title-quantity col-md-7">
+                        <p class="text-sm">
+                          <a class="text-dark" href=""
+                            >Nền Kinh Tế Trải Nghiệm</a
+                          >
+                        </p>
+                        <p class="text-sm text-info">209,300đ x 1</p>
+                      </div>
+                      <div class="cart-item-price col-md-2">
+                        <p class="text-sm text-right text-danger">111</p>
+                      </div>
+                    </div>
+
+                    <div class="cart-pay">
+                      <div class="row text-sm" style="margin-bottom: 10px">
+                        <div class="col-4">
+                          <strong>Tổng giá: </strong>
+                        </div>
+                        <div class="col-8 text-right">
+                          <strong>488,600đ</strong>
+                        </div>
+                      </div>
+
+                      <div class="row text-sm">
+                        <div class="col-4">
+                          <strong>Vận chuyển: </strong>
+                        </div>
+                        <div class="col-8 text-right">
+                          <strong>0đ</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-8 offset-4 text-right">
+                        <strong class="text-danger">488,600đ</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid__row">
+              <div class="col-12 bg-white">
+                <h5 style="font-size: 1.6rem">Hình thức thanh toán</h5>
+                <div class="form-check">
+                  <label
+                    for="paymentOnDelivery"
+                    class="form-check-label text-sm"
+                  >
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      name="paymentMethod"
+                      id="paymentOnDelivery"
+                    />
+                    Thanh toán khi nhận hàng
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label for="paymentViaBank" class="form-check-label text-sm">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      name="paymentMethod"
+                      id="paymentViaBank"
+                    />
+                    Chuyển khoản qua ATM/Internet Banking
+                  </label>
+                </div>
+                <div class="mt-4 text-center">
+                  <hr />
+                  <button
+                    type="button"
+                    class="btn btn-secondary mr-3"
+                    style="
+                      padding: 1rem;
+                      font-size: 1.6rem;
+                      margin-right: 1.6rem;
+                    "
+                  >
+                    Quay lại</button
+                  ><button
+                    class="btn btn-danger"
+                    style="padding: 1rem; font-size: 1.6rem"
+                  >
+                    Thanh toán
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -163,7 +348,7 @@
       <!-- End Container -->
       <!--  -->
       <!-- Start Footer -->
-      <!-- <footer class="app_footer">
+      <footer class="app_footer">
         <div class="grid">
           <div class="footer-info">
             <div class="footer__letter">
@@ -229,7 +414,7 @@
                 </div>
                 <div class="serice-info">
                   <h4 class="service-info__heading">Hỗ trợ</h4>
-<p><a href="">Điều khoản sử dụng</a></p>
+                  <p><a href="">Điều khoản sử dụng</a></p>
                   <p><a href="">Chính sách bảo mật</a></p>
                   <p><a href="">Giới thiệu Pibook</a></p>
                 </div>
@@ -267,11 +452,12 @@
             </div>
           </div>
         </div>
-      </footer> -->
+      </footer>
       <!-- End Footer -->
     </div>
   </body>
 
   <script src="./assets/js/angular.js"></script>
   <script src="./assets/js/global.js"></script>
+  <script src="./assets/js/pay.js"></script>
 </html>
