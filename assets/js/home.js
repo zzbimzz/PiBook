@@ -17,7 +17,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
     $http({
       method: "POST",
       data: { page: 1, pageSize: 10, Title }, // Sử dụng ng-model "searchTerm"
-      url: current_url + "/api/Books/search",
+      url: current_url + "/api-user/books/search",
     }).then(function (response) {
       // debugger;
       $scope.listItem = response.data.data;
@@ -35,7 +35,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.BookHot = function () {
     $http({
       method: "GET",
-      url: current_url + "/api/Books/get-bookHot",
+      url: current_url + "/api-user/books/get-bookHot",
     }).then(function (response) {
       // console.log(response.data);
       $scope.listBookHot = response.data;
@@ -58,7 +58,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.LoadMenu = function () {
     $http({
       method: "GET",
-      url: current_url + "/api/Books/get-all",
+      url: current_url + "/api-user/books/get-all",
     }).then(function (response) {
       // console.log(response.data);
       $scope.listMenu = response.data;
@@ -71,7 +71,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.loadNotifi = function () {
     $http({
       method: "GET",
-      url: current_url + "/api/Notifications/getAll-notifi",
+      url: current_url + "/api-user/notifications/getAll-notifi",
     }).then(function (response) {
       // console.log(response.data);
       $scope.listNotifi = response.data;
@@ -84,7 +84,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.loadAuthors = function () {
     $http({
       method: "GET",
-      url: current_url + "/api/Authors/get-all",
+      url: current_url + "/api-user/authors/get-all",
     }).then(function (response) {
       // console.log(response.data);
       $scope.listAuthors = response.data;
@@ -97,7 +97,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.loadGenres = function () {
     $http({
       method: "GET",
-      url: current_url + "/api/Genres/get-all",
+      url: current_url + "/api-user/genres/get-all",
     }).then(function (response) {
       // console.log(response.data);
       $scope.listGenres = response.data;
@@ -109,7 +109,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.loadBookGenres = function () {
     $http({
       method: "GET",
-      url: current_url + "/api/Books/get-by-genre",
+      url: current_url + "/api-user/books/get-by-genre",
     }).then(function (response) {
       $scope.listBookGenres = response.data;
       //debugger;
@@ -122,7 +122,7 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.loadCarts = function () {
     $http({
       method: "GET",
-      url: current_url + "/api/Carts/get-all",
+      url: current_url + "/api-user/carts/get-all",
     }).then(function (response) {
       // console.log(response.data);
       $scope.listCarts = response.data;

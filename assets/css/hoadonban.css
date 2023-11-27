@@ -1,0 +1,14 @@
+/* CSS để tạo form chi tiết */
+.detail-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 700px; /* Giả sử muốn giữ form chi tiết tối đa 700px */
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

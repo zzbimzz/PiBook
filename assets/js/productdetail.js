@@ -1,63 +1,3 @@
-// var app = angular.module("AppBanHang", []);
-// app.controller("HomeProductDetail", function ($scope, $http, $window) {
-//   $scope.listAuthors = [];
-//   $scope.IDGenres;
-
-//   var urlObject = new URL(window.location.href); // tao doi tuong url
-//   var id = urlObject.searchParams.get("id");
-
-//   // Genres
-//   $scope.loadGenres = function () {
-//     $http({
-//       method: "GET",
-//       url: current_url + `/api/Books/get-by-id/${id}`,
-//     }).then(function (response) {
-//       // console.log(response.data);
-//       $scope.IDGenres = response.data;
-//     });
-//   };
-
-//   $scope.loadGenres();
-
-//   //cart
-//   $scope.addToCart = function (item) {
-//     console.log("Adding to cart:", item);
-//     item.quantity = 1;
-//     var list;
-
-//     if (localStorage.getItem("cart") == null) {
-//       list = [item];
-//     } else {
-//       list = JSON.parse(localStorage.getItem("cart")) || [];
-//       let ok = true;
-
-//       for (let x of list) {
-//         if (x.id == item.id) {
-//           x.quantity += 1;
-//           ok = false;
-//           break;
-//         }
-//       }
-
-//       if (ok) {
-//         list.push(item);
-//       }
-//     }
-
-//     localStorage.setItem("cart", JSON.stringify(list));
-//     alert("Đã thêm giỏ hàng thành công!");
-//     // Hộp thoại xác nhận
-//     var confirmAddToCart = confirm("Bạn có muốn đến giỏ hàng không?");
-
-//     // Kiểm tra người dùng chọn "Có" hay "Không"
-//     if (confirmAddToCart) {
-//       // Chuyển hướng tới trang giỏ hàng
-//       $window.location.href = "/cart.html?id=" + item.id;
-//     } else {
-//       // Người dùng chọn "Không", không thực hiện chuyển hướng
-//     }
-//   };
-// });
 var app = angular.module("AppBanHang", []);
 const btnAddToCart = document.querySelector(".btn-add-to-cart");
 //console.log(btnAddToCart);
@@ -66,26 +6,44 @@ app.controller("HomeProductDetail", function ($scope, $http, $window) {
   $scope.listAuthors = [];
   $scope.IDGenres;
 
-  //addtocart
+  //idNguoiDung
+  var userID = localStorage.getItem("userID");
+  console.log(userID);
+  //var accountName = "user_" + userID;
+
+  //
+  $scope.loadGenres = function () {
+    var urlObject = new URL(window.location.href);
+    var id = urlObject.searchParams.get("id");
+    $http({
+      method: "GET",
+      url: current_url + `/api-user/books/get-by-id/${id}`,
+    }).then(function (response) {
+      $scope.IDGenres = response.data;
+    });
+  };
+  $scope.loadGenres();
+
+  // //addtocart
   btnAddToCart.onclick = function () {
     $scope.addToCart($scope.IDGenres);
   };
 
   // Hàm chung để load thông tin sản phẩm
-  $scope.loadGenres = function () {
-    var urlObject = new URL(window.location.href);
-    var id = urlObject.searchParams.get("id");
+  // $scope.loadGenres = function () {
+  //   var urlObject = new URL(window.location.href);
+  //   var id = urlObject.searchParams.get("id");
 
-    $http({
-      method: "GET",
-      url: current_url + `/api/Books/get-by-id/${id}`,
-    }).then(function (response) {
-      //debugger;
-      $scope.IDGenres = response.data;
-    });
-  };
+  //   $http({
+  //     method: "GET",
+  //     url: current_url + `/api/Books/get-by-id/${id}`,
+  //   }).then(function (response) {
+  //     //debugger;
+  //     $scope.IDGenres = response.data;
+  //   });
+  // };
 
-  $scope.loadGenres();
+  // $scope.loadGenres();
 
   // Hàm chung để thêm sản phẩm vào giỏ hàng
   $scope.addToCart = function (item) {
@@ -93,7 +51,7 @@ app.controller("HomeProductDetail", function ($scope, $http, $window) {
     item.quantity = 1;
 
     // Lấy danh sách sản phẩm từ localStorage
-    var cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    var cartItems = JSON.parse(localStorage.getItem("cart" + userID)) || [];
     console.log(cartItems);
 
     // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
@@ -102,18 +60,18 @@ app.controller("HomeProductDetail", function ($scope, $http, $window) {
     if (existingItem) {
       // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng
       existingItem.quantity += 1;
-      return;
-    }
-
-    if (!existingItem) {
+      alert("Đã thêm vào giỏ hàng thành công!");
+    } else {
       // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào danh sách
       cartItems.push(item);
+      //
+      alert("Đã thêm vào giỏ hàng thành công!");
     }
 
     // Lưu lại danh sách sản phẩm vào localStorage
-    localStorage.setItem("cart", JSON.stringify(cartItems));
+    localStorage.setItem("cart" + userID, JSON.stringify(cartItems));
 
-    alert("Đã thêm vào giỏ hàng thành công!");
+    //alert("Đã thêm vào giỏ hàng thành công!");
 
     var confirmAddToCart = confirm("Bạn có muốn đến giỏ hàng không?");
 

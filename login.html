@@ -155,6 +155,7 @@
                     <form action="" id="form__login">
                       <div class="form-login-account mag-bt-5per">
                         <input
+                          ng-model="userName"
                           name="username"
                           type="text"
                           placeholder="Email/SĐT*"
@@ -164,6 +165,7 @@
 
                       <div class="form-login-password mag-bt-5per">
                         <input
+                          ng-model="password"
                           name="password"
                           type="password"
                           placeholder="Mật khẩu*"
@@ -171,7 +173,7 @@
                         />
                       </div>
                       <button type="submit" class="form-login-btn">
-                        <div class="home-product-btn">
+                        <div class="home-product-btn" ng-click="login()">
                           <a href="" class="home-btn-link btn">Đăng Nhập </a>
                         </div>
                       </button>
@@ -341,7 +343,6 @@
     </div>
     <script src="./assets/js/angular.js"></script>
     <script src="./assets/js/global.js"></script>
-
     <script src="./assets/js/login.js"></script>
   </body>
 </html>

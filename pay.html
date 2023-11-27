@@ -204,7 +204,7 @@
                       id="CityAddressDropdowList"
                       class="form-control"
                     >
-                      <option value="00">-- Chọn thành phố --</option>
+                      <option value="00">-- Chọn quận/huyện --</option>
                     </select>
                   </div>
                   <div class="col-md-6 form-group">
@@ -213,17 +213,15 @@
                       id="CityAddressDropdowList"
                       class="form-control"
                     >
-                      <option value="00">-- Chọn thành phố --</option>
+                      <option value="00">-- Chọn phường/xã/thị trấn --</option>
                     </select>
                   </div>
                   <div class="col-md-6 form-group">
-                    <select
-                      name="city"
-                      id="CityAddressDropdowList"
+                    <input
                       class="form-control"
-                    >
-                      <option value="00">-- Chọn thành phố --</option>
-                    </select>
+                      type="text"
+                      placeholder="Số nhà, tên đường/phường/xã/thị trấn"
+                    />
                   </div>
                 </div>
                 <div class="form-group">
@@ -242,24 +240,28 @@
                 <div>
                   <h5>Giỏ Hàng</h5>
                   <div class="cart__details">
-                    <div class="cart-item row">
-                      <div class="cart-item-img col-3">
-                        <img
-                          src="https://pibook.vn/upload/products/nenktetrainghiem.jpg"
-                          alt=""
-                          class="img-fluid mx-auto"
-                        />
-                      </div>
-                      <div class="cart-item-title-quantity col-md-7">
-                        <p class="text-sm">
-                          <a class="text-dark" href=""
-                            >Nền Kinh Tế Trải Nghiệm</a
-                          >
-                        </p>
-                        <p class="text-sm text-info">209,300đ x 1</p>
-                      </div>
-                      <div class="cart-item-price col-md-2">
-                        <p class="text-sm text-right text-danger">111</p>
+                    <div ng-repeat="item in cartItems">
+                      <div class="cart-item row">
+                        <div class="cart-item-img col-3">
+                          <img
+                            src="{{item.imageBook}}"
+                            alt=""
+                            class="img-fluid mx-auto"
+                          />
+                        </div>
+                        <div class="cart-item-title-quantity col-md-7">
+                          <p class="text-sm">
+                            <a class="text-dark" href="">{{ item.title }}</a>
+                          </p>
+                          <p class="text-sm text-info">
+                            {{ item.price }} x {{ item.quantity }}
+                          </p>
+                        </div>
+                        <div class="cart-item-price col-md-2">
+                          <p class="text-sm text-right text-danger">
+                            {{ item.price * item.quantity }}đ
+                          </p>
+                        </div>
                       </div>
                     </div>
 
@@ -269,7 +271,7 @@
                           <strong>Tổng giá: </strong>
                         </div>
                         <div class="col-8 text-right">
-                          <strong>488,600đ</strong>
+                          <strong>{{ getTotalPrice() }}đ</strong>
                         </div>
                       </div>
 
@@ -285,7 +287,9 @@
                     <hr />
                     <div class="row">
                       <div class="col-8 offset-4 text-right">
-                        <strong class="text-danger">488,600đ</strong>
+                        <strong class="text-danger"
+                          >{{ getTotalPrice() }}đ</strong
+                        >
                       </div>
                     </div>
                   </div>

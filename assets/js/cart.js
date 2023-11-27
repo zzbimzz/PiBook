@@ -31,12 +31,14 @@
 //     localStorage.setItem("cart", JSON.stringify($scope.cartItems));
 //   };
 // });
+
 var app = angular.module("AppBanHang", []);
 const getSP = document.querySelectorAll(".cart-content__item");
 
 app.controller("CartController", function ($scope, $http, $window) {
+  var userID = localStorage.getItem("userID");
   // Load cart data from localStorage
-  $scope.cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  $scope.cartItems = JSON.parse(localStorage.getItem("cart" + userID)) || [];
 
   // Thêm sự kiện removeItem vào controller
   $scope.removeItem = function (index) {
@@ -47,7 +49,8 @@ app.controller("CartController", function ($scope, $http, $window) {
     if (confirmRemove) {
       // Xóa sản phẩm khỏi giỏ hàng
       $scope.cartItems.splice(index, 1);
-      localStorage.setItem("cart", JSON.stringify($scope.cartItems));
+      //
+      localStorage.setItem("cart" + userID, JSON.stringify($scope.cartItems));
     } else {
       // Người dùng chọn "Không", không thực hiện xóa
     }
@@ -57,14 +60,14 @@ app.controller("CartController", function ($scope, $http, $window) {
   $scope.decreaseQuantity = function (index) {
     if ($scope.cartItems[index].quantity > 1) {
       $scope.cartItems[index].quantity--;
-      localStorage.setItem("cart", JSON.stringify($scope.cartItems));
+      localStorage.setItem("cart" + userID, JSON.stringify($scope.cartItems));
     }
   };
 
   // Function to increase quantity
   $scope.increaseQuantity = function (index) {
     $scope.cartItems[index].quantity++;
-    localStorage.setItem("cart", JSON.stringify($scope.cartItems));
+    localStorage.setItem("cart" + userID, JSON.stringify($scope.cartItems));
   };
 
   // Function to get total quantity
@@ -86,11 +89,16 @@ app.controller("CartController", function ($scope, $http, $window) {
   };
 
   // Function to update quantity
-  // $scope.updateQuantity = function (index) {
-  //   if ($scope.cartItems[index].quantity < 1) {
-  //     $scope.cartItems[index].quantity = 1;
-  //   }
-  //   localStorage.setItem("cart", JSON.stringify($scope.cartItems));
-  // };
+  $scope.updateQuantity = function (index) {
+    if ($scope.cartItems[index].quantity < 1) {
+      $scope.cartItems[index].quantity = 1;
+    }
+    localStorage.setItem("cart" + userID, JSON.stringify($scope.cartItems));
+  };
   //console.log("Data to be stored in LocalStorage:", $scope.cartItems);
+
+  // Function to navigate to the payment page with the cart items
+  $scope.goToPaymentPage = function () {
+    $window.location.href = "/pay.html";
+  };
 });

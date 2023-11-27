@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Của Tài</title>
+    <link rel="stylesheet" href="../assets/css/gridAdmin.css" />
+    <link rel="stylesheet" href="../assets/css/mainAdmin.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/hoadonban.css" />
+
+    <link
+      href="https: //fonts.googleapis.com/css2? family = Roboto: wght @ 300; 400; 500; 700 & display = swap "
+      rel=" stylesheet "
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- Header -->
+
+      <!-- Container -->
+      <div class="container">
+        <!-- Sidebar -->
+        <div class="sideBar">
+          <div class="sideBar_wrapper fixed">
+            <ul class="sideBar_list">
+              <li class="sideBar_item">
+                <a
+                  href="MainAdmin.html"
+                  title="Tổng quan"
+                  id="tongQuan"
+                  class="sideBar_item-link"
+                >
+                  <i class="fa-solid fa-house"></i>
+                  <span class="text sideBar_item-text">Tổng quan</span>
+                </a>
+              </li>
+
+              <li class="sideBar_item">
+                <a href="SanPham.html" id="course" class="sideBar_item-link">
+                  <i class="fa-solid fa-road"></i>
+                  <span class="text sideBar_item-text">Sản phẩm</span>
+                </a>
+              </li>
+
+              <li class="sideBar_item">
+                <a href="HoaDonBan.html" id="blog" class="sideBar_item-link">
+                  <i class="fa-solid fa-newspaper"></i>
+                  <span class="text sideBar_item-text">Hóa đơn bán</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div
+          ng-app="AppBanHang"
+          ng-controller="HoaDonBanCtrl"
+          id="content"
+          class="content"
+        >
+          <div class="grid">
+            <div class="title">
+              <h3>Thông tin hóa đơn</h3>
+            </div>
+            <div class="row">
+              <div class="col l-4">
+                <div class="mt-4">
+                  <form
+                    name="form-course"
+                    class="row needs-validation"
+                    method="POST"
+                  >
+                    <input
+                      type="hidden"
+                      class="form-control"
+                      id="orderID_O"
+                      name="orderID_O"
+                      value="0"
+                    />
+
+                    <div class="col l-12 mt-12">
+                      <label for="name" class="form-label"
+                        >Tên khách hàng</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="customerName"
+                        name="customerName"
+                      />
+                    </div>
+
+                    <!-- <div class="col l-12 mt-12">
+                      <label for="description" class="form-label">Mô tả</label>
+                      <textarea
+                        type="text"
+                        class="form-control"
+                        id="description"
+                        name="description"
+                        style="resize: vertical"
+                      ></textarea>
+                    </div> -->
+
+                    <div class="col l-12 mt-12">
+                      <label for="image" class="form-label">Ảnh</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="imageBook"
+                        name="imageBook"
+                      />
+                    </div>
+
+                    <div class="col l-12 mt-12">
+                      <label for="level" class="form-label">Số lượng</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="quantity"
+                        name="quantity"
+                      />
+                    </div>
+
+                    <div class="col l-12 mt-12">
+                      <label for="price" class="form-label">Giá</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="totalAmount"
+                        name="totalAmount"
+                      />
+                    </div>
+
+                    <!-- <div class="col l-12 mt-12">
+                      <label for="author" class="form-label">Mã tác giả</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="authorID"
+                        name="authorID"
+                      />
+                    </div>
+                    <div class="col l-12 mt-12">
+                      <label for="genre" class="form-label">Mã thể loại</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="genreID"
+                        name="genreID"
+                      />
+                    </div>
+                    <div class="col l-12 mt-12">
+                      <label for="supplier" class="form-label"
+                        >Mã nhà cung cấp</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="supplierID"
+                        name="supplierID"
+                      />
+                    </div> -->
+
+                    <div class="col l-12 mt-12">
+                      <button
+                        id="btn-course"
+                        class="btn btn-primary"
+                        type="submit"
+                      >
+                        Lưu
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="col l-8">
+                <div class="mt-4">
+                  <div class="header__search">
+                    <div class="header__search-input">
+                      <input
+                        type="text"
+                        class="header__search-input-text"
+                        placeholder="Tìm kiếm ở đây"
+                        ng-model="searchTerm"
+                      />
+
+                      <div class="header__search-menu">
+                        <h4 class="header__search-menu-heading">
+                          Kết quả tìm kiếm
+                        </h4>
+                        <ul class="header__search-list">
+                          <!-- <li
+                            class="header__search-list-item"
+                            ng-repeat="b in listItem.data"
+                          >
+                            <a href="/product.html?id={{b.bookID}}"
+                              >{{b.title}}</a
+                            >
+                          </li> -->
+                        </ul>
+                      </div>
+                    </div>
+                    <button class="header__search-btn">
+                      <i
+                        class="header__search-btn-icon fa-solid fa-magnifying-glass"
+                      ></i>
+                    </button>
+                  </div>
+
+                  <form name="container-form" action="">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">#</th>
+                          <th style="width: 15%" scope="col">ID hóa đơn</th>
+
+                          <th style="width: 25%" scope="col">Tên sách</th>
+                          <th style="width: 10%" scope="col">Số lượng</th>
+                          <th style="width: 15%" scope="col">Giá tiền</th>
+                          <th style="width: 10%" scope="col">Ngày tạo</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr class="course-item" ng-repeat="x in listItem.data">
+                          <td>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="hidden"
+                                value="{{x.orderID_O}}"
+                                name="orderID_Os[]"
+                              />
+                            </div>
+                          </td>
+                          <th scope="row">
+                            {{ $index + (listItem.page > 1 ? index =
+                            (listItem.page - 1) * 10 + 1 : index = 1 )}}
+                          </th>
+                          <td>{{x.orderID_O}}</td>
+
+                          <td>{{x.bookTitle}}</td>
+                          <td>{{x.quantity}}</td>
+                          <td>{{x.totalAmount}}</td>
+                          <td>{{ formatDate(x.orderDate) }}</td>
+                          <td>
+                            <a
+                              href=""
+                              class="btn btn-link btn-delete-course"
+                              data-id="{{x.orderID_O}}"
+                              >Xóa
+                            </a>
+                            <a
+                              href=""
+                              class="btn btn-link btn-detail-course"
+                              data-id="{{x.orderID_O}}"
+                              >Chi tiết
+                            </a>
+                          </td>
+                        </tr>
+
+                        <!-- <tr>
+                                                        <td colspan='5' class='text-center'>Bạn chưa đăng khóa học nào.
+                                                        </td>
+                                                    </tr> -->
+                      </tbody>
+                    </table>
+                  </form>
+                </div>
+
+                <div class="padding-box">
+                  <div class="box-sum">
+                    <div class="box-left">
+                      Số lượng hóa đơn:
+                      <span id="soluong">{{listItem.totalItems}}</span>
+                    </div>
+                    <div class="box-right">
+                      <button class="btn-primary">
+                        <i class="fas fa-angle-left"></i>
+                      </button>
+                      <div class="navigation">
+                        <!-- <button data-id="1" class="btn-primary">1</button>
+                                                <button data-id="2" class="btn-primary">2</button>
+                                                <button data-id="3" class="btn-primary">3</button>
+                                                <button data-id="4" class="btn-primary">4</button> -->
+                      </div>
+                      <button class="btn-primary">
+                        <i class="fas fa-angle-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="overlay"></div>
+              <!-- Form chi tiết hóa đơn -->
+              <div class="lesson_wrapper">
+                <h1 class="lesson_heading">Chi tiết hóa đơn</h1>
+                <div class="btn btn-primary btn-exit-form">X</div>
+
+                <div class="search">
+                  <input
+                    type="text"
+                    class="search-type input-lesson"
+                    placeholder="Nhập mã, tên bài học..."
+                  />
+                  <button class="btn btn-primary btn-search search-lesson">
+                    <i class="fas fas fa-search"></i> Tìm kiếm
+                  </button>
+                </div>
+
+                <!-- Bảng bài học -->
+                <div class="lesson_list">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="2">#</th>
+                        <th scope="col">ID chi tiết</th>
+                        <th scope="col">Tên sách</th>
+                        <th scope="col">Ảnh sách</th>
+                        <th scope="col">Tên khách hàng</th>
+                        <th scope="col">Giá sách</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Thành tiền</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr class="lesson-item" ng-repeat="ct in chitiethoadon">
+                        <td>
+                          <!-- <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value="{{x.lessonId}}"
+                              name="lessonId"
+                            />
+                          </div> -->
+                        </td>
+
+                        <th scope="row">
+                          {{ $index + (listItem.page > 1 ? index =
+                          (listItem.page - 1) * 10 + 1 : index = 1 )}}
+                        </th>
+
+                        <td>
+                          <section contenteditable="false" name="nameLesson">
+                            {{ct.orderDetailID}}
+                          </section>
+                        </td>
+
+                        <td>
+                          <section contenteditable="false" name="description">
+                            {{ct.title}}
+                          </section>
+                        </td>
+
+                        <td>
+                          <section contenteditable="false" name="videoId">
+                            <img
+                              style="width: 100px"
+                              src=" {{ct.imageBook}}"
+                              alt=""
+                            />
+                          </section>
+                        </td>
+
+                        <td>
+                          <section contenteditable="false" name="duration">
+                            {{ct.name}}
+                          </section>
+                        </td>
+
+                        <td>
+                          <section class="view" name="content">
+                            {{ct.price}}
+                          </section>
+                        </td>
+                        <td>
+                          <section class="view" name="content">
+                            {{ct.quantity}}
+                          </section>
+                        </td>
+                        <td>
+                          <section class="view" name="content">
+                            {{ct.subtotal}}
+                          </section>
+                        </td>
+
+                        <!-- <td name="createdAt">{{x.orderDate}}</td> -->
+
+                        <td>
+                          <button
+                            href=""
+                            class="btn btn-link btn-delete-lesson"
+                            data-id="{{x.lessonId}}"
+                          >
+                            Xóa
+                          </button>
+                        </td>
+                      </tr>
+
+                      <!-- <tr>
+                                    <td colspan='5' class='text-center'>Bạn chưa đăng khóa học nào.
+                                    </td>
+                                </tr> -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <button class="btn btn-primary btn-create-lesson">+</button>
+                <button class="btn btn-primary btn-update-lesson">Lưu</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Start Footer -->
+      <footer class="app_footer">
+        <div class="grid">
+          <div class="footer-info">
+            <div class="footer__letter">
+              <div class="text-letter">
+                <span>
+                  <i
+                    style="padding-right: 5px"
+                    class="fa-solid fa-envelope"
+                  ></i>
+                  ĐĂNG KÝ NHẬN BẢN TIN
+                </span>
+              </div>
+            </div>
+
+            <div class="footer__input">
+              <input type="gmail" class="footer__input-text" placeholder="" />
+            </div>
+            <button class="footer-btn">Đăng ký</button>
+          </div>
+          <div class="footer-helps">
+            <div class="grid__column-2-4">
+              <a href="" class="header__logo-link">
+                <img
+                  src="https://pibook.vn/upload/logo-trong-suot%202.png"
+                  alt=""
+                  class="header__logo-link-img"
+                />
+              </a>
+              <p style="font-size: 1.6rem; font-weight: 300">
+                Thanh Xuân - Hà Nội
+                <br />
+                GPKD: 0105990058
+              </p>
+              <a href="" class="certificate">
+                <img
+                  class="certificate-img"
+                  src="https://pibook.vn/resource/images/dat-thong-bao.png"
+                  alt=""
+                />
+              </a>
+              <p class="footer-icon">
+                <a href="" class="btn btn-facebook"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="" class="btn btn-instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="" class="btn btn-youtube"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="" class="btn btn-twitter"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+              </p>
+            </div>
+            <div class="grid__column-2-8">
+              <div class="footer-service">
+                <div class="service-info">
+                  <h4 class="service-info__heading">Dịch vụ</h4>
+                  <p><a href="">Điều khoản sử dụng</a></p>
+                  <p><a href="">Chính sách bảo mật</a></p>
+                  <p><a href="">Giới thiệu Pibook</a></p>
+                </div>
+                <div class="serice-info">
+                  <h4 class="service-info__heading">Hỗ trợ</h4>
+                  <p><a href="">Điều khoản sử dụng</a></p>
+                  <p><a href="">Chính sách bảo mật</a></p>
+                  <p><a href="">Giới thiệu Pibook</a></p>
+                </div>
+                <div class="serice-info">
+                  <h4 class="service-info__heading">Tài khoản của tôi</h4>
+                  <p><a href="">Điều khoản sử dụng</a></p>
+                  <p><a href="">Chính sách bảo mật</a></p>
+                  <p><a href="">Giới thiệu Pibook</a></p>
+                </div>
+                <div class="serice-info">
+                  <h4 class="service-info__heading">Liên hệ</h4>
+                  <p>
+                    <a href="">
+                      <i class="fa-solid fa-phone"></i>
+                      Hotline: 024 6329 6389</a
+                    >
+                  </p>
+                  <p>
+                    <a href="">
+                      <i class="fa-solid fa-envelope"></i>
+                      Email: hotro@pibook.vn</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-license">
+            <div class="footer-license-text">
+              <p>© 2015 - Bản quyền của Công Ty TNHH PIBOOK</p>
+              <p>
+                Giấy chứng nhận Đăng ký Kinh doanh số 0105990058 do Sở Kế Hoạch
+                và Đầu Tư Thành phố Hà Nội cấp ngày 14/09/2012
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- End Footer -->
+    </div>
+    <script>
+      var user = JSON.parse(localStorage.getItem("account"));
+      if (!user) {
+        window.location.href = "../login.html";
+      }
+    </script>
+    <script src="../assets/js/angular.js"></script>
+    <script src="../assets/js/global.js"></script>
+
+    <script src="../assets/js/admin/ctiethdb.js"></script>
+    <script type="module" src="../assets/js/admin/hoadonban.js"></script>
+    <script
+      type="module"
+      src="../Admin/assets/js/services/courseService.js"
+    ></script>
+  </body>
+</html>

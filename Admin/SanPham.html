@@ -43,16 +43,16 @@
               </li>
 
               <li class="sideBar_item">
-                <a href="Courses.html" id="course" class="sideBar_item-link">
+                <a href="SanPham.html" id="course" class="sideBar_item-link">
                   <i class="fa-solid fa-road"></i>
-                  <span class="text sideBar_item-text">Khoá học</span>
+                  <span class="text sideBar_item-text">Sản phẩm</span>
                 </a>
               </li>
 
               <li class="sideBar_item">
-                <a href="Lesson.html" id="blog" class="sideBar_item-link">
+                <a href="HoaDonBan.html" id="blog" class="sideBar_item-link">
                   <i class="fa-solid fa-newspaper"></i>
-                  <span class="text sideBar_item-text">Bài học</span>
+                  <span class="text sideBar_item-text">Hóa đơn bán</span>
                 </a>
               </li>
             </ul>
@@ -68,7 +68,7 @@
         >
           <div class="grid">
             <div class="title">
-              <h3>Thông tin khóa học</h3>
+              <h3>Thông tin sản phẩm</h3>
             </div>
             <div class="row">
               <div class="col l-4">
@@ -79,7 +79,7 @@
                     method="POST"
                   >
                     <input
-                      type="text"
+                      type="hidden"
                       class="form-control"
                       id="bookID"
                       name="bookID"
@@ -219,10 +219,10 @@
                       <thead>
                         <tr>
                           <th scope="col" colspan="2">#</th>
-                          <th scope="col " colspan="2">Tên khóa học</th>
-                          <th scope="col">Tên sách</th>
+                          <th scope="col " colspan="2">Tên sách</th>
+                          <th scope="col">Ảnh</th>
                           <th scope="col">Giá tiền</th>
-                          <th scope="col">So luong</th>
+                          <th scope="col">Số lượng</th>
                         </tr>
                       </thead>
 
@@ -280,7 +280,7 @@
                 <div class="padding-box">
                   <div class="box-sum">
                     <div class="box-left">
-                      Số lượng khoá học:
+                      Số lượng sản phẩm:
                       <span id="soluong">{{listItem.totalItems}}</span>
                     </div>
                     <div class="box-right">
