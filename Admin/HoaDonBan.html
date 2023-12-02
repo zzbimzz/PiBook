@@ -56,6 +56,12 @@
                   <span class="text sideBar_item-text">Hóa đơn bán</span>
                 </a>
               </li>
+              <li class="sideBar_item">
+                <a href="ThongKe.html" id="blog" class="sideBar_item-link">
+                  <i class="fa-solid fa-newspaper"></i>
+                  <span class="text sideBar_item-text">Thống Kê</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -82,22 +88,22 @@
                     <input
                       type="hidden"
                       class="form-control"
-                      id="orderID_O"
-                      name="orderID_O"
+                      id="orderID"
+                      name="orderID"
                       value="0"
                     />
 
-                    <div class="col l-12 mt-12">
+                    <!-- <div class="col l-12 mt-12">
                       <label for="name" class="form-label"
                         >Tên khách hàng</label
                       >
                       <input
                         type="text"
                         class="form-control"
-                        id="customerName"
-                        name="customerName"
+                        id="name"
+                        name="name"
                       />
-                    </div>
+                    </div> -->
 
                     <!-- <div class="col l-12 mt-12">
                       <label for="description" class="form-label">Mô tả</label>
@@ -110,7 +116,7 @@
                       ></textarea>
                     </div> -->
 
-                    <div class="col l-12 mt-12">
+                    <!-- <div class="col l-12 mt-12">
                       <label for="image" class="form-label">Ảnh</label>
                       <input
                         type="text"
@@ -118,9 +124,9 @@
                         id="imageBook"
                         name="imageBook"
                       />
-                    </div>
+                    </div> -->
 
-                    <div class="col l-12 mt-12">
+                    <!-- <div class="col l-12 mt-12">
                       <label for="level" class="form-label">Số lượng</label>
                       <input
                         type="text"
@@ -128,9 +134,9 @@
                         id="quantity"
                         name="quantity"
                       />
-                    </div>
+                    </div> -->
 
-                    <div class="col l-12 mt-12">
+                    <!-- <div class="col l-12 mt-12">
                       <label for="price" class="form-label">Giá</label>
                       <input
                         type="text"
@@ -138,7 +144,7 @@
                         id="totalAmount"
                         name="totalAmount"
                       />
-                    </div>
+                    </div> -->
 
                     <!-- <div class="col l-12 mt-12">
                       <label for="author" class="form-label">Mã tác giả</label>
@@ -175,9 +181,7 @@
                         id="btn-course"
                         class="btn btn-primary"
                         type="submit"
-                      >
-                        Lưu
-                      </button>
+                      ></button>
                     </div>
                   </form>
                 </div>
@@ -194,21 +198,21 @@
                         ng-model="searchTerm"
                       />
 
-                      <div class="header__search-menu">
+                      <!-- <div class="header__search-menu">
                         <h4 class="header__search-menu-heading">
                           Kết quả tìm kiếm
                         </h4>
                         <ul class="header__search-list">
-                          <!-- <li
+                           <li
                             class="header__search-list-item"
                             ng-repeat="b in listItem.data"
                           >
                             <a href="/product.html?id={{b.bookID}}"
                               >{{b.title}}</a
                             >
-                          </li> -->
+                          </li> 
                         </ul>
-                      </div>
+                      </div> -->
                     </div>
                     <button class="header__search-btn">
                       <i
@@ -221,26 +225,25 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th scope="col"></th>
+                          <th></th>
                           <th scope="col">#</th>
                           <th style="width: 15%" scope="col">ID hóa đơn</th>
+                          <th style="width: 25%" scope="col">Tên khách hàng</th>
 
-                          <th style="width: 25%" scope="col">Tên sách</th>
-                          <th style="width: 10%" scope="col">Số lượng</th>
                           <th style="width: 15%" scope="col">Giá tiền</th>
                           <th style="width: 10%" scope="col">Ngày tạo</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <tr class="course-item" ng-repeat="x in listItem.data">
+                        <tr class="course-item" ng-repeat="x in listItem">
                           <td>
                             <div class="form-check">
                               <input
                                 class="form-check-input"
                                 type="hidden"
-                                value="{{x.orderID_O}}"
-                                name="orderID_Os[]"
+                                value="{{x.orderID}}"
+                                name="orderID[]"
                               />
                             </div>
                           </td>
@@ -248,23 +251,23 @@
                             {{ $index + (listItem.page > 1 ? index =
                             (listItem.page - 1) * 10 + 1 : index = 1 )}}
                           </th>
-                          <td>{{x.orderID_O}}</td>
+                          <td>{{x.orderID}}</td>
 
-                          <td>{{x.bookTitle}}</td>
-                          <td>{{x.quantity}}</td>
+                          <td>{{x.name}}</td>
+
                           <td>{{x.totalAmount}}</td>
                           <td>{{ formatDate(x.orderDate) }}</td>
                           <td>
                             <a
                               href=""
                               class="btn btn-link btn-delete-course"
-                              data-id="{{x.orderID_O}}"
+                              data-id="{{x.orderID}}"
                               >Xóa
                             </a>
                             <a
                               href=""
                               class="btn btn-link btn-detail-course"
-                              data-id="{{x.orderID_O}}"
+                              data-id="{{x.orderID}}"
                               >Chi tiết
                             </a>
                           </td>
@@ -283,7 +286,7 @@
                   <div class="box-sum">
                     <div class="box-left">
                       Số lượng hóa đơn:
-                      <span id="soluong">{{listItem.totalItems}}</span>
+                      <span id="soluong">{{total}}</span>
                     </div>
                     <div class="box-right">
                       <button class="btn-primary">
@@ -536,9 +539,9 @@
       <!-- End Footer -->
     </div>
     <script>
-      var user = JSON.parse(localStorage.getItem("account"));
+      var user = JSON.parse(localStorage.getItem("userID"));
       if (!user) {
-        window.location.href = "../login.html";
+        window.location.href = "../login";
       }
     </script>
     <script src="../assets/js/angular.js"></script>

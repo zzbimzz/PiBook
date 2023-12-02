@@ -9,8 +9,10 @@ const price = document.querySelector("#price");
 const authorID = document.querySelector("#authorID");
 const genreID = document.querySelector("#genreID");
 const supplierID = document.querySelector("#supplierID");
+
 const form = document.forms["form-course"];
-const btnCourse = document.querySelector("#btn-course");
+
+const btnBook = document.querySelector("#btn-course");
 
 const formDataObject = {};
 let total = 0;
@@ -81,9 +83,13 @@ app.controller("BookCtrl", function ($scope, $http) {
     page: pageIndex,
     pageSize: 10,
   });
-  searchInput.oninput = () => {
+  searchInput.onchange = () => {
     if (searchInput.value !== "") {
-      $scope.SeachProduct(searchInput.value);
+      $scope.SeachSanPham({
+        page: 1,
+        pageSize: 10,
+        Title: searchInput.value,
+      });
     }
   };
 
@@ -100,6 +106,15 @@ app.controller("BookCtrl", function ($scope, $http) {
         }</button>
                 `;
       }
+      const btnNavigation = document.querySelectorAll("button[data-id]");
+      btnNavigation.forEach(
+        (item) =>
+          (item.onclick = () =>
+            $scope.SeachSanPham({
+              page: item.dataset.id,
+              pageSize: 10,
+            }))
+      );
 
       document.querySelectorAll(".course-item").forEach((ele, index) => {
         const btnDelete = ele.querySelector(".btn-delete-course");
@@ -126,7 +141,7 @@ app.controller("BookCtrl", function ($scope, $http) {
   }
 
   // Sự kiện nhấn của nút Lưu
-  btnCourse.onclick = () =>
+  btnBook.onclick = () =>
     document.getElementById("bookID").value === "0"
       ? $scope.CreateSanPham(formDataObject)
       : $scope.UpdateSanPham(formDataObject);

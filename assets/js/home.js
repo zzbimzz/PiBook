@@ -11,6 +11,21 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.listBookHot = [];
   $scope.listItem = [];
   $scope.searchTerm = "";
+  $scope.user = "";
+
+  //User
+
+  $scope.loadUser = () => {
+    var idLogin = localStorage.getItem("userID");
+    $http({
+      method: "GET",
+      url: current_url + "/api-admin/customer/get-by-id/" + idLogin,
+    }).then((response) => {
+      $scope.user = response.data;
+    });
+  };
+
+  $scope.loadUser();
 
   // Tim kiem
   $scope.SeachProduct = function (Title) {
@@ -44,28 +59,17 @@ app.controller("HomeCtrl", function ($scope, $http) {
 
   $scope.BookHot();
 
-  // $scope.viewProductDetail = function (x) {
+  // $scope.LoadMenu = function () {
   //   $http({
   //     method: "GET",
-  //     url: current_url + `/api/Books/get-by-id/${x.bookID}`,
-  //   }).then((res) => {
-  //     const detail = JSON.stringify(res.data);
-  //     localStorage.setItem("detail", detail);
-  //     window.location.href = "./product.html";
+  //     url: current_url + "/api-user/books/get-all",
+  //   }).then(function (response) {
+  //     // console.log(response.data);
+  //     $scope.listMenu = response.data;
   //   });
   // };
 
-  $scope.LoadMenu = function () {
-    $http({
-      method: "GET",
-      url: current_url + "/api-user/books/get-all",
-    }).then(function (response) {
-      // console.log(response.data);
-      $scope.listMenu = response.data;
-    });
-  };
-
-  $scope.LoadMenu();
+  // $scope.LoadMenu();
 
   // notifi
   $scope.loadNotifi = function () {
@@ -119,15 +123,15 @@ app.controller("HomeCtrl", function ($scope, $http) {
   $scope.loadBookGenres();
 
   // Carts
-  $scope.loadCarts = function () {
-    $http({
-      method: "GET",
-      url: current_url + "/api-user/carts/get-all",
-    }).then(function (response) {
-      // console.log(response.data);
-      $scope.listCarts = response.data;
-    });
-  };
+  // $scope.loadCarts = function () {
+  //   $http({
+  //     method: "GET",
+  //     url: current_url + "/api-user/carts/get-all",
+  //   }).then(function (response) {
+  //     // console.log(response.data);
+  //     $scope.listCarts = response.data;
+  //   });
+  // };
 
-  $scope.loadCarts();
+  // $scope.loadCarts();
 });

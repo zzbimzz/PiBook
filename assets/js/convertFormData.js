@@ -1,5 +1,7 @@
+//chuyển dổi giữ liệu từ formData sang JS
+
 function convertFormData(form) {
-  const formDataObject = {};
+  const formDataObject = {}; // đối tượng
   const data = new FormData(form);
   data.forEach((value, key) => {
     formDataObject[key] = value;

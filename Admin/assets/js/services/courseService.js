@@ -8,37 +8,8 @@ let total = 0;
 
 var app = angular.module("AppBanHang", []);
 app.controller("HoaDonBanCtrl", function ($scope, $http) {
-  // Tạo khóa học
-  // $scope.CreateKhoaHoc = function (data) {
-  //   console.log("create");
-
-  //   $http({
-  //     method: "POST",
-  //     data,
-  //     url: API + "/api-admin/course/create-course",
-  //   }).then(function (response) {
-  //     alert("Bạn thêm khóa học thành công");
-  //     location.reload();
-  //   });
-  // };
-
-  // Cập nhật khóa học
-  // $scope.UpdateKhoaHoc = function (data) {
-  //   console.log("update");
-
-  //   $http({
-  //     method: "PATCH",
-  //     data,
-  //     url: API + "/api-admin/course/update-course",
-  //   }).then(function (response) {
-  //     alert("Bạn sửa khóa học thành công");
-
-  //     location.reload();
-  //   });
-  // };
-
   //Xóa hóa đơn
-  $scope.DeleteKhoaHoc = function (id) {
+  $scope.DeleteHoaDon = function (id) {
     console.log("delete");
 
     confirm("Bạn có chắc chắn muốn xóa?") &&
@@ -53,33 +24,33 @@ app.controller("HoaDonBanCtrl", function ($scope, $http) {
 
   // Lấy khóa học theo id
 
-  $scope.GetKhoaHoc = function (id) {
+  $scope.GetByHoaDonID = function (id) {
     $http({
       url: current_url + "/api-admin/oders/get-by-id/" + id,
       method: "GET",
     }).then(function (response) {
       $scope.chitiethoadon = response.data.list_json_chitiethoadon123;
-      console.log(response);
     });
   };
 
-  // Tìm kiếm khóa học
+  // hien thi hoa don
   let pageIndex = 1;
-  $scope.listItem;
-  $scope.SeachKhoaHoc = function (data) {
+
+  $scope.GetHoaDon = function () {
     $http({
-      method: "POST",
-      data,
-      url: current_url + "/api-admin/oders/search",
+      method: "GET",
+      url: current_url + "/api-admin/oders/get-all",
     }).then(function (response) {
-      // debugger;
+      //debugger;
       $scope.listItem = response.data;
-      total = Number(response.data.totalItems);
+      console.log(response);
+      $scope.total = Number(response.data.length);
+
       reload();
     });
   };
 
-  $scope.SeachKhoaHoc({
+  $scope.GetHoaDon({
     page: pageIndex,
     pageSize: 10,
   });
@@ -106,34 +77,34 @@ app.controller("HoaDonBanCtrl", function ($scope, $http) {
                 `;
       }
 
-      const btnNavigation = document.querySelectorAll("button[data-id]");
-      btnNavigation.forEach(
-        (item) =>
-          (item.onclick = () =>
-            $scope.SeachKhoaHoc({
-              page: item.dataset.id,
-              pageSize: 10,
-            }))
-      );
+      // const btnNavigation = document.querySelectorAll("button[data-id]");
+      // btnNavigation.forEach(
+      //   (item) =>
+      //     (item.onclick = () =>
+      //       $scope.SeachKhoaHoc({
+      //         page: item.dataset.id,
+      //         pageSize: 10,
+      //       }))
+      // );
       // bắt sự kiện các các hàng
       document.querySelectorAll(".course-item").forEach((ele, index) => {
         // Sự kiện xóa khóa học
         const btnDelete = ele.querySelector(".btn-delete-course");
         const btnDetail = ele.querySelector(".btn-detail-course");
 
-        btnDelete.onclick = (e) => DeleteKhoaHoc(e.target.dataset.id);
+        btnDelete.onclick = (e) => $scope.DeleteHoaDon(e.target.dataset.id);
         btnDetail.onclick = (e) => {
           document.querySelector(".lesson_wrapper").style.display = "block";
           document.querySelector(".overlay").style.display = "block";
 
-          $scope.GetKhoaHoc(e.target.dataset.id);
-          //$scope.lessonHandle();
+          $scope.GetByHoaDonID(e.target.dataset.id);
+          $scope.lessonHandle();
         };
 
         // Sự kiện click hàng trong bảng
         ele.onclick = () => {
           // Thêm thông tin của hàng lên các ô input
-          const checkBox = ele.querySelector('input[name="orderID_Os[]"]');
+          const checkBox = ele.querySelector('input[name="orderID[]"]');
 
           //   // Thêm mã khóa học lên thanh url
           var urlObject = new URL(window.location.href);
@@ -146,7 +117,7 @@ app.controller("HoaDonBanCtrl", function ($scope, $http) {
           document.querySelector(".lesson_wrapper").style.display = "block";
           document.querySelector(".overlay").style.display = "block";
 
-          GetKhoaHoc(document.querySelector('input[name="courseId"]').value);
+          GetByHoaDonID(document.querySelector('input[name="orderID"]').value);
           lessonHandle();
         };
       });
@@ -163,7 +134,7 @@ app.controller("HoaDonBanCtrl", function ($scope, $http) {
 
   // Sự kiện nhấn của nút Lưu
   btnCourse.onclick = () =>
-    document.getElementById("courseId").value === "0"
+    document.getElementById("orderID").value === "0"
       ? $scope.CreateKhoaHoc(formDataObject)
       : $scope.UpdateKhoaHoc(formDataObject);
 });

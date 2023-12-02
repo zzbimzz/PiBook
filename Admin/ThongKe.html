@@ -56,9 +56,9 @@
                 </a>
               </li>
               <li class="sideBar_item">
-                <a href="ThongKe.html" id="blog" class="sideBar_item-link">
+                <a href="HoaDonBan.html" id="blog" class="sideBar_item-link">
                   <i class="fa-solid fa-newspaper"></i>
-                  <span class="text sideBar_item-text">Thông Kê</span>
+                  <span class="text sideBar_item-text">Thống kê</span>
                 </a>
               </li>
             </ul>
@@ -68,13 +68,13 @@
         <!-- Content -->
         <div
           ng-app="AppBanHang"
-          ng-controller="BookCtrl"
+          ng-controller="ThongKeCtrl"
           id="content"
           class="content"
         >
           <div class="grid">
             <div class="title">
-              <h3>Thông tin sản phẩm</h3>
+              <h3>Thống kê</h3>
             </div>
             <div class="row">
               <div class="col l-4">
@@ -93,83 +93,20 @@
                     />
 
                     <div class="col l-12 mt-12">
-                      <label for="name" class="form-label">Tên sách</label>
+                      <label for="name" class="form-label">Từ ngày</label>
                       <input
-                        type="text"
+                        type="datetime-local"
                         class="form-control"
-                        id="title"
-                        name="title"
-                      />
-                    </div>
-
-                    <!-- <div class="col l-12 mt-12">
-                      <label for="description" class="form-label">Mô tả</label>
-                      <textarea
-                        type="text"
-                        class="form-control"
-                        id="description"
-                        name="description"
-                        style="resize: vertical"
-                      ></textarea>
-                    </div> -->
-
-                    <div class="col l-12 mt-12">
-                      <label for="image" class="form-label">Ảnh</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="imageBook"
-                        name="imageBook"
+                        id="from_date"
                       />
                     </div>
 
                     <div class="col l-12 mt-12">
-                      <label for="level" class="form-label">Số lượng</label>
+                      <label for="image" class="form-label">Đến ngày</label>
                       <input
-                        type="text"
+                        type="datetime-local"
                         class="form-control"
-                        id="stock"
-                        name="stock"
-                      />
-                    </div>
-
-                    <div class="col l-12 mt-12">
-                      <label for="price" class="form-label">Giá</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="price"
-                        name="price"
-                      />
-                    </div>
-
-                    <div class="col l-12 mt-12">
-                      <label for="author" class="form-label">Mã tác giả</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="authorID"
-                        name="authorID"
-                      />
-                    </div>
-                    <div class="col l-12 mt-12">
-                      <label for="genre" class="form-label">Mã thể loại</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="genreID"
-                        name="genreID"
-                      />
-                    </div>
-                    <div class="col l-12 mt-12">
-                      <label for="supplier" class="form-label"
-                        >Mã nhà cung cấp</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="supplierID"
-                        name="supplierID"
+                        id="to_date"
                       />
                     </div>
 
@@ -224,17 +161,15 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th scope="col" colspan="2">#</th>
-                          <th scope="col " colspan="2">Tên sách</th>
-                          <th scope="col">Ảnh</th>
-                          <th scope="col">Giá tiền</th>
-                          <th scope="col">Số lượng</th>
+                          <th scope="col">#</th>
+                          <th scope="col">Ngày đặt</th>
+                          <th scope="col">Thanh toán</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <tr class="course-item" ng-repeat="x in listItem.data">
-                          <td>
+                        <tr class="course-item" ng-repeat="x in listItem">
+                          <!-- <td>
                             <div class="form-check">
                               <input
                                 class="form-check-input"
@@ -243,35 +178,13 @@
                                 name="bookIds[]"
                               />
                             </div>
-                          </td>
+                          </td> -->
                           <th scope="row">
                             {{ $index + (listItem.page > 1 ? index =
                             (listItem.page - 1) * 10 + 1 : index = 1 )}}
                           </th>
-                          <td colspan="2">{{x.title}}</td>
-                          <td>
-                            <img
-                              style="width: 100px"
-                              src="{{x.imageBook}}"
-                              alt=""
-                            />
-                          </td>
-                          <td>{{x.price}}</td>
-                          <td>{{x.stock}}</td>
-                          <td>
-                            <a
-                              href=""
-                              class="btn btn-link btn-delete-course"
-                              data-id="{{x.bookID}}"
-                              >Xóa
-                            </a>
-                            <!-- <a
-                              href=""
-                              class="btn btn-link btn-detail-course"
-                              data-id="{{x.courseId}}"
-                              >Chi tiết
-                            </a> -->
-                          </td>
+                          <td>{{formatDate(x.orderDate)}}</td>
+                          <td>{{x.totalAmount}}</td>
                         </tr>
 
                         <!-- <tr>
@@ -286,8 +199,12 @@
                 <div class="padding-box">
                   <div class="box-sum">
                     <div class="box-left">
-                      Số lượng sản phẩm:
+                      Số lượng hóa đơn :
                       <span id="soluong">{{listItem.totalItems}}</span>
+                    </div>
+                    <div class="box-left">
+                      Tổng Tiền:
+                      <span id="tongtien">{{totalAmountSum }}</span>
                     </div>
                     <div class="box-right">
                       <button class="btn-primary">
@@ -427,7 +344,6 @@
     </script>
     <script src="../assets/js/angular.js"></script>
     <script src="../assets/js/global.js"></script>
-
-    <script type="module" src="../assets/js/admin/book.js"></script>
+    <script type="module" src="../assets/js/admin/thongke.js"></script>
   </body>
 </html>

@@ -76,7 +76,7 @@
   line-height: 38px;
 }
 
-.header__search-input-text:focus-within ~ .header__search-menu {
+.header__search-input-text ~ .header__search-menu {
   display: block;
 }
 

@@ -8,6 +8,8 @@ app.controller("HomeProductDetail", function ($scope, $http, $window) {
 
   //idNguoiDung
   var userID = localStorage.getItem("userID");
+  var customerID = localStorage.getItem("customerID");
+  console.log(customerID);
   console.log(userID);
   //var accountName = "user_" + userID;
 
@@ -28,22 +30,6 @@ app.controller("HomeProductDetail", function ($scope, $http, $window) {
   btnAddToCart.onclick = function () {
     $scope.addToCart($scope.IDGenres);
   };
-
-  // Hàm chung để load thông tin sản phẩm
-  // $scope.loadGenres = function () {
-  //   var urlObject = new URL(window.location.href);
-  //   var id = urlObject.searchParams.get("id");
-
-  //   $http({
-  //     method: "GET",
-  //     url: current_url + `/api/Books/get-by-id/${id}`,
-  //   }).then(function (response) {
-  //     //debugger;
-  //     $scope.IDGenres = response.data;
-  //   });
-  // };
-
-  // $scope.loadGenres();
 
   // Hàm chung để thêm sản phẩm vào giỏ hàng
   $scope.addToCart = function (item) {
