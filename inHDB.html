@@ -72,22 +72,14 @@
         margin-top: 5px;
       }
     </style>
-    <script src="./assets/js/angular.js"></script>
-    <script src="./assets/js/global.js"></script>
-    <script src="./assets/js/inHDB.js"></script>
   </head>
 
-  <body
-    ng-app="AppAdmin"
-    ng-controller="inHDBCtrl"
-    ng-init="inHoaDon()"
-    style="margin-bottom: 300px"
-  >
+  <body style="margin-bottom: 300px">
     <section style="text-align: center; margin: 25px 0">
       <h1>HÓA ĐƠN BÁN HÀNG</h1>
     </section>
 
-    <div class="le dam">Tên đơn vị bán hàng: NMT Decorative Lights</div>
+    <div class="le dam">Tên đơn vị bán hàng: PiBook</div>
     <div class="le">Mã số thuế: 123456789</div>
     <div class="le">Tên khách hàng: {{user.name}}</div>
     <div class="le">Địa chỉ: {{user.address}}</div>
@@ -108,7 +100,7 @@
       </tr>
 
       <tr>
-        <td colspan="5" class="dam" style="text-align: center">
+        <td colspan="4" class="dam" style="text-align: center">
           Tổng tiền hóa đơn bán
         </td>
         <td class="dam">{{totalAmount}}</td>

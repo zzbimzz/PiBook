@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="./assets/css/cart.css" />
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
-  <body ng-app="AppBanHang" ng-controller="CartController">
+  <body>
     <div class="app">
       <!-- Start Header -->
       <div class="app__header">
@@ -149,58 +149,42 @@
           <div class="grid">
             <div class="grid__row">
               <div class="col-md-8 cart-view">
-                <div
-                  ng-repeat="item in cartItems track by item.bookID"
-                  class="cart-content__item"
-                  style="padding-top: 20px"
-                >
+                <div class="cart-content__item" style="padding-top: 20px">
                   <div class="col-3 col-md-2">
-                    <img
-                      src="{{item.imageBook}} "
-                      class="img-cart"
-                      style="width: 120px"
-                    />
+                    <img src=" " class="img-cart" style="width: 120px" />
                   </div>
                   <div class="col-5 col-md-8">
-                    <a href="" class="link-title">{{item.title}}</a>
+                    <a href="" class="link-title"></a>
                     <div
                       class="col-price font-weight-bold"
                       style="padding-top: 16px"
                     >
-                      {{item.price}}
                       <p
                         class="text-sm product-price-origin"
                         style="padding-top: 16px"
-                      >
-                        {{item.price}}
-                      </p>
+                      ></p>
                     </div>
                     <div class="catalog-product-details-discount">
                       <div class="product-view-quantity-box-block">
-                        <a ng-click="decreaseQuantity($index)">
+                        <a>
                           <span class="btnGiam">
                             <i class="fa-solid fa-minus"></i>
                           </span>
                         </a>
-                        <span class="quanty-product">{{item.quantity}}</span>
-                        <a ng-click="increaseQuantity($index)">
+                        <span class="quanty-product"></span>
+                        <a>
                           <span class="btnTang">
                             <i class="fa-solid fa-plus"></i>
                           </span>
                         </a>
                       </div>
-                      <button
-                        class="btn btn-light"
-                        ng-click="removeItem($index)"
-                      >
+                      <button class="btn btn-light">
                         <i class="fa-solid fa-trash"></i>
                       </button>
                     </div>
                   </div>
                   <div class="col-4 col-md-2">
-                    <span class="text-danger font-weight-bold">
-                      {{item.price * item.quantity}} đ</span
-                    >
+                    <span class="text-danger font-weight-bold"> đ</span>
                   </div>
                   <!-- thứ 2 -->
                 </div>
@@ -212,14 +196,13 @@
                     <p>
                       <label for="">Sản phẩm :</label>
                       <strong class="px-3 text-right"
-                        >{{ getTotalQuantity() }}</strong
-                      >
+                        ><span class="total-quantity"></span
+                      ></strong>
                     </p>
+
                     <p>
                       <label for="">Tổng tiền :</label>
-                      <strong class="px-3 text-right"
-                        >{{ getTotalPrice() }} đ</strong
-                      >
+                      <strong class="px-3 text-right"> đ</strong>
                     </p>
                     <p>
                       <label for="">Giảm giá :</label>
@@ -231,7 +214,7 @@
                         >Thanh toán:</strong
                       >
                       <strong class="px-3 text-danger text-right text-normal">
-                        {{ getTotalPrice() }} đ
+                        đ
                       </strong>
                     </p>
                   </div>
@@ -240,11 +223,7 @@
                   <a style="padding: 10px" class="btn btn-secondary mr-2"
                     >Mua tiếp</a
                   >
-                  <button
-                    ng-click="goToPaymentPage()"
-                    style="padding: 10px"
-                    class="btn btn-info"
-                  >
+                  <button style="padding: 10px" class="btn btn-info">
                     Thanh toán
                   </button>
                 </div>
@@ -365,8 +344,6 @@
     </div>
   </body>
 
-  <script src="./assets/js/angular.js"></script>
-  <script src="./assets/js/global.js"></script>
   <script src="./assets/js/productdetail.js"></script>
   <script src="./assets/js/cart.js"></script>
 </html>

@@ -76,9 +76,9 @@
   line-height: 38px;
 }
 
-.header__search-input-text ~ .header__search-menu {
+/* .header__search-input-text ~ .header__search-menu {
   display: block;
-}
+} */
 
 /* End form */
 .header__search-btn {
@@ -444,6 +444,15 @@
     margin: 0;
   }
 }
+
+.submenu-item-list {
+  font-size: 1.6rem;
+  list-style: none;
+  padding: 0;
+}
+.submenu-item-list li {
+  padding: 0.6rem;
+}
 .megasubmenu {
   padding: 20px;
   display: block;
@@ -717,6 +726,11 @@ footer a {
 }
 
 /* Product */
+
+.product-item:nth-child(n + 11) {
+  display: none;
+}
+
 .product-content {
   width: 100%;
 }

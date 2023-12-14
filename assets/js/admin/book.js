@@ -10,9 +10,9 @@ const authorID = document.querySelector("#authorID");
 const genreID = document.querySelector("#genreID");
 const supplierID = document.querySelector("#supplierID");
 
-const form = document.forms["form-course"];
+const form = document.forms["form-book"];
 
-const btnBook = document.querySelector("#btn-course");
+const btnBook = document.querySelector("#btn-book");
 
 const formDataObject = {};
 let total = 0;

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./assets/css/cart.css" />
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
-  <body ng-app="AppBanHang" ng-controller="PayController">
+  <body>
     <div class="app">
       <!-- Start Header -->
       <div class="app__header">
@@ -191,31 +191,26 @@
                   </div>
                 </div>
               </div> -->
-              <div class="col-md-4" style="padding: 20px; font-size: 1.6rem">
+              <div
+                class="col-md-4 paycheck"
+                style="padding: 20px; font-size: 1.6rem"
+              >
                 <div>
                   <h5>Giỏ Hàng</h5>
                   <div class="cart__details">
-                    <div ng-repeat="item in cartItems">
+                    <div>
                       <div class="cart-item row">
                         <div class="cart-item-img col-3">
-                          <img
-                            src="{{item.imageBook}}"
-                            alt=""
-                            class="img-fluid mx-auto"
-                          />
+                          <img src="" alt="" class="img-fluid mx-auto" />
                         </div>
                         <div class="cart-item-title-quantity col-md-7">
                           <p class="text-sm">
-                            <a class="text-dark" href="">{{ item.title }}</a>
+                            <a class="text-dark" href=""></a>
                           </p>
-                          <p class="text-sm text-info">
-                            {{ item.price }} x {{ item.quantity }}
-                          </p>
+                          <p class="text-sm text-info"></p>
                         </div>
                         <div class="cart-item-price col-md-2">
-                          <p class="text-sm text-right text-danger">
-                            {{ item.price * item.quantity }}đ
-                          </p>
+                          <p class="text-sm text-right text-danger">đ</p>
                         </div>
                       </div>
                     </div>
@@ -226,7 +221,7 @@
                           <strong>Tổng giá: </strong>
                         </div>
                         <div class="col-8 text-right">
-                          <strong>{{ getTotalPrice() }}đ</strong>
+                          <strong>đ</strong>
                         </div>
                       </div>
 
@@ -242,9 +237,7 @@
                     <hr />
                     <div class="row">
                       <div class="col-8 offset-4 text-right">
-                        <strong class="text-danger"
-                          >{{ getTotalPrice() }}đ</strong
-                        >
+                        <strong class="text-danger">đ</strong>
                       </div>
                     </div>
                   </div>
@@ -259,24 +252,14 @@
                     for="paymentOnDelivery"
                     class="form-check-label text-sm"
                   >
-                    <input
-                      type="radio"
-                      class="form-check-input"
-                      name="paymentMethod"
-                      id="paymentOnDelivery"
-                    />
+                    <input type="radio" class="form-check-input" />
                     Thanh toán khi nhận hàng
                   </label>
                 </div>
 
                 <div class="form-check">
                   <label for="paymentViaBank" class="form-check-label text-sm">
-                    <input
-                      type="radio"
-                      class="form-check-input"
-                      name="paymentMethod"
-                      id="paymentViaBank"
-                    />
+                    <input type="radio" class="form-check-input" />
                     Chuyển khoản qua ATM/Internet Banking
                   </label>
                 </div>
@@ -295,7 +278,6 @@
                   ><button
                     class="btn btn-danger"
                     style="padding: 1rem; font-size: 1.6rem"
-                    ng-click="createHoaDon()"
                   >
                     Thanh toán
                   </button>
@@ -417,7 +399,5 @@
     </div>
   </body>
 
-  <script src="./assets/js/angular.js"></script>
-  <script src="./assets/js/global.js"></script>
   <script src="./assets/js/pay.js"></script>
 </html>

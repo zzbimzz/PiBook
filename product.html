@@ -23,7 +23,7 @@
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
 
-  <body ng-app="AppBanHang" ng-controller="HomeProductDetail">
+  <body>
     <div class="app">
       <!-- Start Header -->
       <div class="app__header">
@@ -71,6 +71,39 @@
                         <i class="fa-solid fa-bell"></i>
                         <span>Thông báo</span>
                       </a>
+                      <!-- Thong bao -->
+                      <div class="header__notification">
+                        <header class="header__notification-head">
+                          <h3>Thông báo mới nhận</h3>
+                        </header>
+                        <ul class="header__notification-list">
+                          <!-- <li
+                            class="header__notification-item header__notification-item--viewed"
+                          >
+                            <a href="" class="header__notification-link">
+                              <img
+                                src="https://zzbimzz.github.io/Shoppeee/assets/img/ingredients_100px.png"
+                                alt=""
+                                class="header__notification-img"
+                              />
+                              <div class="header__notification-info">
+                                <span class="header__notification-name"
+                                  >abc
+                                </span>
+                                <span class="header__notification-descrio"
+                                  >abc
+                                </span>
+                              </div>
+                            </a>
+                          </li> -->
+                        </ul>
+                        <footer class="header__notification-footer">
+                          <a href="" class="header__notification-btn"
+                            >Xem tất cả</a
+                          >
+                        </footer>
+                      </div>
+                      <!-- End thong bao -->
                     </div>
                   </div>
                   <div class="header__info-cart">
@@ -135,13 +168,15 @@
               <div class="home">
                 <ol class="home-list">
                   <li class="home-item">
-                    <a href="./index.html" title="Tới trang chủ">Trang chủ </a>/
+                    <a href="./index.html" title="Tới trang chủ">Trang chủ </a>
+                  </li>
+                  <li class="home-item">
                     <a href="#" title="Tới trang chủ">
                       {{IDGenres.genreName}}</a
                     >
                   </li>
                   <li class="home-item">
-                    <strong>{{IDGenres.title}}</strong>
+                    <a href="#" title="Tới trang chủ">{{IDGenres.title}}</a>
                   </li>
                 </ol>
               </div>
@@ -412,8 +447,5 @@
     </div>
   </body>
 
-  <script src="./assets/js/angular.js"></script>
-  <script src="./assets/js/global.js"></script>
-
-  <script src="./assets/js/productdetail.js"></script>
+  <script type="module" src="./assets/js/productdetail.js"></script>
 </html>

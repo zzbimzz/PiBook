@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./assets/css/base.css" />
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
-  <body ng-app="AppBanHang" ng-controller="HomeCtrl">
+  <body>
     <div class="app">
       <!-- Start Header -->
       <div class="app__header">
@@ -56,7 +56,6 @@
                       type="text"
                       class="header__search-input-text"
                       placeholder="Tìm kiếm ở đây"
-                      ng-model="searchTerm"
                     />
 
                     <div class="header__search-menu">
@@ -64,13 +63,8 @@
                         Kết quả tìm kiếm
                       </h4>
                       <ul class="header__search-list">
-                        <li
-                          class="header__search-list-item"
-                          ng-repeat="book in listItem"
-                        >
-                          <a href="/product.html?id={{book.bookID}}"
-                            >{{book.title}}</a
-                          >
+                        <li class="header__search-list-item">
+                          <a href="/product.html?id={{book.bookID}}"></a>
                         </li>
                       </ul>
                     </div>
@@ -94,9 +88,8 @@
                           <h3>Thông báo mới nhận</h3>
                         </header>
                         <ul class="header__notification-list">
-                          <li
+                          <!-- <li
                             class="header__notification-item header__notification-item--viewed"
-                            ng-repeat="x in listNotifi"
                           >
                             <a href="" class="header__notification-link">
                               <img
@@ -106,14 +99,14 @@
                               />
                               <div class="header__notification-info">
                                 <span class="header__notification-name"
-                                  >{{x.title}}
+                                  >abc
                                 </span>
                                 <span class="header__notification-descrio"
-                                  >{{x.description}}
+                                  >abc
                                 </span>
                               </div>
                             </a>
-                          </li>
+                          </li> -->
                         </ul>
                         <footer class="header__notification-footer">
                           <a href="" class="header__notification-btn"
@@ -141,10 +134,7 @@
                         <span class="header-cart-list-no-cart-msg"></span> -->
                         <!-- <h4 class="header__cart-heading">san pham da them</h4> -->
                         <ul class="header__cart-list-item">
-                          <li
-                            class="header__cart-item"
-                            ng-repeat="x in listCarts"
-                          >
+                          <li class="header__cart-item">
                             <img
                               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTatq8NHEy_VE24mRfp8_GogUQNaPiF9AKYzQ&usqp=CAU"
                               alt=""
@@ -152,19 +142,17 @@
                             />
                             <div class="header__cart-item-info">
                               <div class="header__cart-item-head">
-                                <h5 class="header__cart-item-name">
-                                  {{x.bookTitle}}
-                                </h5>
+                                <h5 class="header__cart-item-name">abc</h5>
                                 <div class="header__cart-item-price-wrap">
                                   <span class="header__cart-item-price">
-                                    {{x.bookPrice}}</span
+                                    abc</span
                                   >
 
                                   <span class="header__cart-item-multiply"
                                     >x</span
                                   >
                                   <span class="header__cart-item-quantity"
-                                    >{{x.quantity}}</span
+                                    >abc</span
                                   >
                                 </div>
                               </div>
@@ -227,15 +215,14 @@
               <nav class="category">
                 <h3 class="category__heading">Danh mục sản phẩm</h3>
                 <ul class="category__list">
-                  <li class="category__item category__item-active has-submenu">
+                  <!-- <li class="category__item category__item-active has-submenu">
                     <a href="#" class="category__item-link"> Thể loại </a>
                     <div
                       class="megasubmenu dropdown-menu"
                       style="width: 1000px"
                     >
                       <div class="grid__row">
-                        <div class="submenu-item" ng-repeat="x in listGenres">
-                          <h3>{{x.genreName}}</h3>
+                        <div class="submenu-item">
                           <ul class="submenu-item-list">
                             <li>Truyện ngắn - Tản văn</li>
                             <li>Tiểu thuyết</li>
@@ -245,26 +232,7 @@
                         </div>
                       </div>
                     </div>
-                  </li>
-                  <li class="category__item category__item-active has-submenu">
-                    <a href="#" class="category__item-link"> Tác giả </a>
-                    <div
-                      class="megasubmenu dropdown-menu"
-                      style="width: 1000px"
-                    >
-                      <div class="grid__row">
-                        <div class="submenu-item" ng-repeat="x in listAuthors">
-                          <h3>{{x.authorName}}</h3>
-                          <ul class="submenu-item-list">
-                            <li>Truyện ngắn - Tản văn</li>
-                            <li>Tiểu thuyết</li>
-                            <li>Tác phẩm kinh điển</li>
-                            <li>Truyện ngôn tình</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+                  </li> -->
                 </ul>
               </nav>
             </div>
@@ -368,7 +336,7 @@
             <!-- End Menu -->
           </div>
           <div class="content__main">
-            <div class="main-product">
+            <!-- <div class="main-product">
               <h2 class="main-product-text main-backgr">SÁCH BÁN CHẠY (HOT)</h2>
               <div class="main-menu">
                 <h4 class="main-menu-text">
@@ -380,23 +348,19 @@
               </div>
               <div class="main-product-list">
                 <div class="list-Item grid__row">
-                  <div
-                    class="grid__column-2-4 home-product-item"
-                    ng-repeat="x in listBookHot"
-                  >
-                    <!-- <div class="home-product-item__img"></div> -->
+                  <div class="grid__column-2-4 home-product-item">
                     <a href="/product.html?id={{x.bookID}}">
-                      <img src="{{x.imageBook}}" alt="" />
+                      <img src="./assets/img/clothing1women.png" alt="" />
                       <a
                         class="home-product-item__name"
                         href=""
                         title="Màn hình máy tính MSI Optix MAG322CQRV Cong 2K 144Hz"
-                        >{{x.title}} </a
+                        >Tài đẹp trai </a
                       ><br />
                       <span class="home-product-item__price-old"
                         >12.500.000₫</span
                       ><span class="home-product-item__price-current"
-                        ><b>{{x.price}}</b></span
+                        ><b>abc</b></span
                       >
                     </a>
                     <div class="home-product-item__action">
@@ -428,176 +392,12 @@
                       >
                     </div>
                   </div>
-                  <!-- <div class="grid__column-2-4">
-                    <a href="" class="home-product-all">
-                      <div class="home-product-item">
-                        <div
-                          class="home-product-item__img"
-                          style="
-                            background-image: url(https://i.pinimg.com/564x/7a/9a/e8/7a9ae8ea742c4703116ce48198b38a6e.jpg);
-                          "
-                        ></div>
-                        <h4 class="home-product-item__name">Nhà Giả Kim</h4>
-                        <div class="home-product-item__price">
-                          <span class=""
-                            >1.000.000d
-                          </span>
-                          <span class="home-product-item__price-current"
-                            >500.000d
-                          </span>
-                        </div>
-                        <div class="home-product-item__action">
-                          <div class="home-product-item__rating">
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                          </div>
-                        </div>
-                        <div class="home-product-item__favorite">
-                          <i class="fa-solid fa-check"></i>
-                          <span> Yêu thích</span>
-                        </div>
-                        <div class="home-product-item__sale-up">
-                          <span class="home-product-item__sale-up-percent"
-                            >-10%</span
-                          >
-                        </div>
-                      </div>
-                    </a>
-                  </div> -->
                 </div>
                 <div class="home-product-btn">
                   <a href="" class="home-btn-link btn">Xem thêm </a>
                 </div>
               </div>
-            </div>
-            <div class="main-product" ng-repeat="genre in listBookGenres">
-              <h2 class="main-product-text main-backgr">{{genre.genres}}</h2>
-              <div class="main-menu">
-                <h4 class="main-menu-text">
-                  <a href="" class="main-menu-link btn">Deal hot trong ngày</a>
-                </h4>
-                <h4 class="main-menu-text">
-                  <a href="" class="main-menu-link btn">Sách hot/Giảm sốc</a>
-                </h4>
-              </div>
-              <div class="main-product-list">
-                <div class="list-Item grid__row">
-                  <div
-                    class="grid__column-2-4 home-product-item"
-                    ng-repeat="x in genre.list_json_Courses"
-                  >
-                    <!-- <div class="home-product-item__img"></div> -->
-                    <a href="/product.html?id={{x.bookID}}">
-                      <img src="{{x.imageBook}}" alt="" />
-                      <a
-                        class="home-product-item__name"
-                        href=""
-                        title="Màn hình máy tính MSI Optix MAG322CQRV Cong 2K 144Hz"
-                        >{{x.title}} </a
-                      ><br />
-                      <span class="home-product-item__price-old"
-                        >12.500.000₫</span
-                      ><span class="home-product-item__price-current"
-                        ><b>{{x.price}}</b></span
-                      >
-                    </a>
-                    <div class="home-product-item__action">
-                      <div class="home-product-item__rating">
-                        <i
-                          class="home-product-item__star--gold fa-solid fa-star"
-                        ></i>
-                        <i
-                          class="home-product-item__star--gold fa-solid fa-star"
-                        ></i>
-                        <i
-                          class="home-product-item__star--gold fa-solid fa-star"
-                        ></i>
-                        <i
-                          class="home-product-item__star--gold fa-solid fa-star"
-                        ></i>
-                        <i
-                          class="home-product-item__star--gold fa-solid fa-star"
-                        ></i>
-                      </div>
-                    </div>
-                    <div class="home-product-item__favorite">
-                      <i class="fa-solid fa-check"></i>
-                      <span> Yêu thích</span>
-                    </div>
-                    <div class="home-product-item__sale-up">
-                      <span class="home-product-item__sale-up-percent"
-                        >-10%</span
-                      >
-                    </div>
-                  </div>
-                  <!-- <div class="grid__column-2-4">
-                    <a href="" class="home-product-all">
-                      <div class="home-product-item">
-                        <div
-                          class="home-product-item__img"
-                          style="
-                            background-image: url(https://i.pinimg.com/564x/7a/9a/e8/7a9ae8ea742c4703116ce48198b38a6e.jpg);
-                          "
-                        ></div>
-                        <h4 class="home-product-item__name">Nhà Giả Kim</h4>
-                        <div class="home-product-item__price">
-                          <span class=""
-                            >1.000.000d
-                          </span>
-                          <span class="home-product-item__price-current"
-                            >500.000d
-                          </span>
-                        </div>
-                        <div class="home-product-item__action">
-                          <div class="home-product-item__rating">
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                            <i
-                              class="home-product-item__star--gold fa-solid fa-star"
-                            ></i>
-                          </div>
-                        </div>
-                        <div class="home-product-item__favorite">
-                          <i class="fa-solid fa-check"></i>
-                          <span> Yêu thích</span>
-                        </div>
-                        <div class="home-product-item__sale-up">
-                          <span class="home-product-item__sale-up-percent"
-                            >-10%</span
-                          >
-                        </div>
-                      </div>
-                    </a>
-                  </div> -->
-                </div>
-                <div class="home-product-btn">
-                  <a href="" class="home-btn-link btn">Xem thêm </a>
-                </div>
-              </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -711,9 +511,9 @@
       </footer>
       <!-- End Footer -->
       <script src="./assets/js/main.js"></script>
-      <script src="./assets/js/angular.js"></script>
-      <script src="./assets/js/global.js"></script>
-      <script src="./assets/js/home.js"></script>
+      <!-- <script src="./assets/js/angular.js"></script>
+      <script src="./assets/js/global.js"></script> -->
+      <script type="module" src="./assets/js/home.js"></script>
     </div>
   </body>
 </html>
