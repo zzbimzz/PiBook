@@ -1,9 +1,24 @@
-const payCheck = document.querySelector(".paycheck");
+document.addEventListener("DOMContentLoaded", function () {
+  const btnThanhToan = document.getElementById("btnThanhToan");
+  const hoTenInput = document.getElementById("hoTen");
+  const emailInput = document.getElementById("email");
+  const soDienThoaiInput = document.getElementById("soDienThoai");
+  const diaChiGiaoHangInput = document.getElementById("diaChiGiaoHang");
+  const payCheck = document.querySelector(".paycheck");
 
-// Lấy dữ liệu giỏ hàng từ local storage
-let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  // Lấy dữ liệu giỏ hàng từ local storage
+  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-const Pay = () => {
+  // Hàm kiểm tra xem tất cả các trường đã được nhập đủ chưa
+  function areFieldsValid() {
+    return (
+      hoTenInput.value.trim() !== "" &&
+      emailInput.value.trim() !== "" &&
+      soDienThoaiInput.value.trim() !== "" &&
+      diaChiGiaoHangInput.value.trim() !== ""
+    );
+  }
+
   // Hàm để tính số tiền cho mỗi sản phẩm
   function calculateSubtotal(item) {
     return item.Price * item.quantity;
@@ -76,9 +91,54 @@ const Pay = () => {
     payCheck.innerHTML += cartPayHtml;
   }
 
+  // Sự kiện click của nút "Thanh toán"
+  // Sự kiện click của nút "Thanh toán"
+  btnThanhToan.addEventListener("click", function () {
+    // Kiểm tra xem tất cả các trường đã được nhập đủ chưa
+    if (!areFieldsValid()) {
+      alert("Vui lòng nhập đầy đủ thông tin giao hàng.");
+      return;
+    }
+
+    // Kiểm tra xem đã chọn ít nhất một phương thức thanh toán chưa
+    const paymentMethods = document.getElementsByName("paymentMethod");
+    let selectedPaymentMethod = false;
+    for (let i = 0; i < paymentMethods.length; i++) {
+      if (paymentMethods[i].checked) {
+        selectedPaymentMethod = true;
+        break;
+      }
+    }
+
+    if (!selectedPaymentMethod) {
+      alert("Vui lòng chọn ít nhất một phương thức thanh toán.");
+      return;
+    }
+
+    // Tạo đối tượng chứa thông tin cá nhân của người dùng
+    const userInfo = {
+      hoTen: hoTenInput.value.trim(),
+      email: emailInput.value.trim(),
+      soDienThoai: soDienThoaiInput.value.trim(),
+      diaChiGiaoHang: diaChiGiaoHangInput.value.trim(),
+    };
+
+    // Lấy dữ liệu giỏ hàng từ local storage
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Đối tượng chứa thông tin người dùng và giỏ hàng
+    const userAndCartInfo = {
+      userInfo: userInfo,
+      cartItems: cartItems,
+    };
+
+    // Lưu đối tượng vào local storage
+    localStorage.setItem("userAndCartInfo", JSON.stringify(userAndCartInfo));
+
+    // Nếu đã nhập đủ và chọn ít nhất một phương thức thanh toán, chuyển trang sang inHDB.html
+    window.location.href = "inHDB.html";
+  });
+
   // Gọi hàm để cập nhật giao diện người dùng
   updateCartUI();
-};
-
-// Gọi hàm Pay để khởi tạo
-Pay();
+});

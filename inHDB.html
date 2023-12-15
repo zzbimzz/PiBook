@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title style="color: transparent">.</title>
+
     <style>
       * {
         margin: 0;
@@ -75,43 +77,39 @@
   </head>
 
   <body style="margin-bottom: 300px">
-    <section style="text-align: center; margin: 25px 0">
-      <h1>HÓA ĐƠN BÁN HÀNG</h1>
-    </section>
+    <div id="pdfContent">
+      <section style="text-align: center; margin: 25px 0">
+        <h1>HÓA ĐƠN BÁN HÀNG</h1>
+      </section>
 
-    <div class="le dam">Tên đơn vị bán hàng: PiBook</div>
-    <div class="le">Mã số thuế: 123456789</div>
-    <div class="le">Tên khách hàng: {{user.name}}</div>
-    <div class="le">Địa chỉ: {{user.address}}</div>
-    <div class="le">Email: {{user.email}}</div>
-    <div class="le doi">Điện thoại: {{user.phone}}</div>
-    <div class="le doi dam">Ngày mua: {{formatDate(order.orderDate)}}</div>
+      <div class="le1">Tên khách hàng:</div>
+      <div class="le2">Địa chỉ:</div>
+      <div class="le3">Email:</div>
+      <div class="le4">Điện thoại:</div>
+      <div class="le doi dam">Ngày mua:</div>
+      <div class="dam1" style="font-weight: bold">Tổng tiền :</div>
 
-    <table>
-      <tr style="background: #095b87; color: #fff">
-        <th>Tên sách</th>
-        <th>Số lượng</th>
-        <th>Tổng tiền</th>
-      </tr>
-      <tr ng-repeat="item in cartItems">
-        <td>{{item.title}}</td>
-        <td>{{item.quantity}}</td>
-        <td>{{item.price * item.quantity}}</td>
-      </tr>
+      <table>
+        <tr style="background: #095b87; color: #fff">
+          <th>Tên sách</th>
+          <th>Số lượng</th>
+          <th>Tổng tiền</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
 
-      <tr>
-        <td colspan="4" class="dam" style="text-align: center">
-          Tổng tiền hóa đơn bán
-        </td>
-        <td class="dam">{{totalAmount}}</td>
-      </tr>
-    </table>
-
-    <div class="doi dam ky">Xác nhận của cấp trên</div>
-    <div class="doi dam ky">Người làm thống kê</div>
-    <div class="doi ky1">(Ký, ghi rõ họ tên)</div>
-    <div class="doi ky1">(Ký, ghi rõ họ tên)</div>
+      <div class="doi dam ky">Xác nhận của cấp trên</div>
+      <div class="doi dam ky">Người làm thống kê</div>
+      <div class="doi ky1">(Ký, ghi rõ họ tên)</div>
+      <div class="doi ky1">(Ký, ghi rõ họ tên)</div>
+      <button id="downloadPdfButton" onclick="downloadPdf()">
+        Tải xuống PDF
+      </button>
+    </div>
+    <script src="./assets/js/inHDB.js"></script>
   </body>
-
-  <script src="./assets/js/inHDB.js"></script>
 </html>
