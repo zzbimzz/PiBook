@@ -11,10 +11,6 @@
     <link rel="stylesheet" href="../assets/css/base.css" />
 
     <link
-      href="https: //fonts.googleapis.com/css2? family = Roboto: wght @ 300; 400; 500; 700 & display = swap "
-      rel=" stylesheet "
-    />
-    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
@@ -66,12 +62,7 @@
         </div>
 
         <!-- Content -->
-        <div
-          ng-app="AppBanHang"
-          ng-controller="BookCtrl"
-          id="content"
-          class="content"
-        >
+        <div id="content" class="content">
           <div class="grid">
             <div class="title">
               <h3>Thông tin sản phẩm</h3>
@@ -186,7 +177,7 @@
                 </div>
               </div>
 
-              <div class="col l-8">
+              <div class="col l-8 bookList">
                 <div class="mt-4">
                   <div class="header__search">
                     <div class="header__search-input">
@@ -194,7 +185,6 @@
                         type="text"
                         class="header__search-input-text"
                         placeholder="Tìm kiếm ở đây"
-                        ng-model="searchTerm"
                       />
 
                       <!-- <div class="header__search-menu">
@@ -233,7 +223,7 @@
                       </thead>
 
                       <tbody>
-                        <tr class="course-item" ng-repeat="x in listItem.data">
+                        <tr class="course-item">
                           <td>
                             <div class="form-check">
                               <input
@@ -244,20 +234,13 @@
                               />
                             </div>
                           </td>
-                          <th scope="row">
-                            {{ $index + (listItem.page > 1 ? index =
-                            (listItem.page - 1) * 10 + 1 : index = 1 )}}
-                          </th>
-                          <td colspan="2">{{x.title}}</td>
+                          <th scope="row"></th>
+                          <td colspan="2"></td>
                           <td>
-                            <img
-                              style="width: 100px"
-                              src="{{x.imageBook}}"
-                              alt=""
-                            />
+                            <img style="width: 100px" src="" alt="" />
                           </td>
-                          <td>{{x.price}}</td>
-                          <td>{{x.stock}}</td>
+                          <td></td>
+                          <td></td>
                           <td>
                             <a
                               href=""
@@ -287,7 +270,7 @@
                   <div class="box-sum">
                     <div class="box-left">
                       Số lượng sản phẩm:
-                      <span id="soluong">{{listItem.totalItems}}</span>
+                      <span id="soluong"></span>
                     </div>
                     <div class="box-right">
                       <button class="btn-primary">
@@ -419,15 +402,15 @@
       </footer>
       <!-- End Footer -->
     </div>
-    <script>
+    <!-- <script>
       var user = JSON.parse(localStorage.getItem("userID"));
       if (!user) {
         window.location.href = "../login";
       }
-    </script>
+    </script> -->
     <!-- <script src="../assets/js/angular.js"></script>
     <script src="../assets/js/global.js"></script> -->
 
-    <script type="module" src="../assets/js/admin/book.js"></script>
+    <script type="module" src="../Admin/assets/js/sanpham.js"></script>
   </body>
 </html>
