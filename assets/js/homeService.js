@@ -1,4 +1,4 @@
-import fetchApi from "./fetchAPI.js";
+//import fetchApi from "./fetchAPI.js";
 
 // hiển thị ra các thông tin sách
 function bookItem({ data }) {
@@ -52,7 +52,7 @@ function bookItem({ data }) {
 }
 
 // hiển thị ra các header sách
-function home({ data }) {
+function Home({ data }) {
   return `
   <div class="main-product">
   <h2 class="main-product-text main-backgr">${data.title}</h2>
@@ -128,4 +128,4 @@ function Notifi({ data }) {
   `;
 }
 
-export { home, Menu, Notifi };
+export { Home, Menu, Notifi };

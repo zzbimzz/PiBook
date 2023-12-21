@@ -1,5 +1,6 @@
-import { home, Menu, Notifi } from "./homeService.js";
-import fetchApi from "./fetchAPI.js";
+import { Home, Menu, Notifi } from "./homeService.js";
+import { home, menu, notifi } from "./data.js";
+//import fetchApi from "./fetchAPI.js";
 
 // thông báo
 const contentNotifi = document.querySelector(".header__notification-list");
@@ -9,24 +10,19 @@ const contentMenu = document.querySelector(".category__list");
 
 // giao diện home
 const contentMain = document.querySelector(".content__main");
-
+console.log(home);
 // lấy dữ liệu từ db.json " home" Sách
-const books = await fetchApi.get("/home").then((response) => {
-  return response.json();
-});
 
+const books = home;
+console.log(menu);
 // lấy dữ liệu từ db.json " home" menu
-const menus = await fetchApi.get("/menu").then((response) => {
-  return response.json();
-});
-
+const menus = menu;
+console.log(notifi);
 //lấy dữ liệu từ ds.json "home" Notifi
-const notifis = await fetchApi.get("/notifi").then((response) => {
-  return response.json();
-});
+const notifis = notifi;
 
 // render ra dữ liệu từ home
-const htmls = books.map((book) => home({ data: book }));
+const htmls = books.map((book) => Home({ data: book }));
 contentMain.innerHTML += htmls.join("");
 
 // render ra dữ liệu danh mục

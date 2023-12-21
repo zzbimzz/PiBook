@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PiBook</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -19,10 +20,8 @@
     <link rel="stylesheet" href="./assets/css/grid.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/base.css" />
-
     <!-- <link rel="stylesheet" href="./assets/css/reponsive.css" /> -->
   </head>
-
   <body>
     <div class="app">
       <!-- Start Header -->
@@ -32,7 +31,7 @@
             <div class="header__nav">
               <!-- Header Banner -->
               <div class="header__nav-banner-top">
-                <a href="#" class="header__nav-banner"
+                <a href="./index.html" class="header__nav-banner"
                   ><img
                     src="https://pibook.vn/upload/banner/coverwwebb.png"
                     alt=""
@@ -42,7 +41,7 @@
               <!-- End Banner -->
               <div class="header__with-search">
                 <div class="header__logo">
-                  <a href="./index.html" class="header__logo-link">
+                  <a href="" class="header__logo-link">
                     <img
                       src="https://pibook.vn/upload/logo-trong-suot%202.png"
                       alt=""
@@ -50,13 +49,25 @@
                     />
                   </a>
                 </div>
+                <!-- Search -->
                 <div class="header__search">
                   <div class="header__search-input">
                     <input
                       type="text"
                       class="header__search-input-text"
-                      placeholder=""
+                      placeholder="Tìm kiếm ở đây"
                     />
+
+                    <div class="header__search-menu">
+                      <h4 class="header__search-menu-heading">
+                        Kết quả tìm kiếm
+                      </h4>
+                      <ul class="header__search-list">
+                        <li class="header__search-list-item">
+                          <a href="/product.html?id={{book.bookID}}"></a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                   <button class="header__search-btn">
                     <i
@@ -108,23 +119,59 @@
                   </div>
                   <div class="header__info-cart">
                     <div class="header__info-cart-wrap-icon">
-                      <a href="/cart.html" class="header__info-link">
+                      <a href="./cart.html" class="header__info-link">
                         <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="header-cart-notice">3</span>
                         <span>Giỏ hàng</span>
                       </a>
-                      <!-- List cart -->
+                      <!-- List no cart -->
                       <div class="header-cart-list">
-                        <img
-                          src="https://th.bing.com/th/id/OIP.FKH0V4dg1bUbHOPRz2mPewHaE7?w=273&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                        <!-- <img
+                          src="https://th.bing.com/th/id/OIP.bXDljSyk8WYVSIBQr1RbXwHaFQ?w=254&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
                           alt=""
                           class="header-no-cart-img"
                         />
-                        <span class="header-cart-list-no-cart-msg"
-                          >chua co san pham</span
-                        >
+                        <span class="header-cart-list-no-cart-msg"></span> -->
                         <!-- <h4 class="header__cart-heading">san pham da them</h4> -->
+                        <ul class="header__cart-list-item">
+                          <li class="header__cart-item">
+                            <img
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTatq8NHEy_VE24mRfp8_GogUQNaPiF9AKYzQ&usqp=CAU"
+                              alt=""
+                              class="header__cart-img"
+                            />
+                            <div class="header__cart-item-info">
+                              <div class="header__cart-item-head">
+                                <h5 class="header__cart-item-name">abc</h5>
+                                <div class="header__cart-item-price-wrap">
+                                  <span class="header__cart-item-price">
+                                    abc</span
+                                  >
+
+                                  <span class="header__cart-item-multiply"
+                                    >x</span
+                                  >
+                                  <span class="header__cart-item-quantity"
+                                    >abc</span
+                                  >
+                                </div>
+                              </div>
+                              <div class="header__cart-item-body">
+                                <span class="header__cart-item-description"
+                                  >Chi tiết</span
+                                >
+                                <span class="header__cart-item-remove"
+                                  >Xóa</span
+                                >
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <a href="" class="home-btn-link-cart btn"
+                          >Xem giỏ hàng</a
+                        >
                       </div>
-                      <!-- End list cart -->
+                      <!-- End list no cart -->
                     </div>
                   </div>
                   <div class="header__info-log">
@@ -136,14 +183,14 @@
                       <!-- Menu item -->
                       <ul class="header__info-menu">
                         <li class="header__info-item">
-                          <a href="" class="header__info-item-link">
+                          <a href="./login.html" class="header__info-item-link">
                             <i class="fa-solid fa-right-to-bracket"></i>
                             <span>Đăng nhập</span>
                           </a>
                         </li>
 
                         <li class="header__info-item">
-                          <a href="" class="header__info-item-link">
+                          <a href="./login.html" class="header__info-item-link">
                             <i class="fa-solid fa-user-plus"></i>
                             <span>Đăng ký</span>
                           </a>
@@ -162,165 +209,174 @@
       <!--  -->
       <!-- Start Container -->
       <div class="app__container">
-        <div class="content-header">
-          <div class="grid">
-            <div class="grid__row">
-              <div class="home">
-                <ol class="home-list">
-                  <li class="home-item">
-                    <a href="./index.html" title="Tới trang chủ">Trang chủ </a>
-                  </li>
-                </ol>
-              </div>
+        <div class="grid">
+          <div class="grid__row app__content">
+            <div class="grid__column-2-4">
+              <nav class="category">
+                <h3 class="category__heading">Thông Tin Cá Nhân</h3>
+                <ul class="category__list">
+                  <!-- <li class="category__item category__item-active has-submenu">
+                    <a href="#" class="category__item-link"> Thể loại </a>
+                    <div
+                      class="megasubmenu dropdown-menu"
+                      style="width: 1000px"
+                    >
+                      <div class="grid__row">
+                        <div class="submenu-item">
+                          <ul class="submenu-item-list">
+                            <li>Truyện ngắn - Tản văn</li>
+                            <li>Tiểu thuyết</li>
+                            <li>Tác phẩm kinh điển</li>
+                            <li>Truyện ngôn tình</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li> -->
+                </ul>
+              </nav>
             </div>
           </div>
-        </div>
-        <div class="content-main">
-          <div class="grid">
-            <div class="grid__row">
-              <div class="product-content grid__row">
-                <div class="product-content-left">
-                  <div class="product-content-left-big-img">
-                    <img src="{{IDGenres.imageBook}}" alt="" />
-                  </div>
-                  <!-- <div class="product-content-left-small-img">
-                    <img
-                      src="https://pibook.vn/upload/products/63114_11_06_20_HSJA2O66.jpg"
-                      alt=""
-                    />
-                    <img
-                      src="https://pibook.vn/upload/products/63114_11_06_20_HSJA2O66.jpg"
-                      alt=""
-                    />
-                    <img
-                      src="https://pibook.vn/upload/products/63114_11_06_20_HSJA2O66.jpg"
-                      alt=""
-                    />
-                    <img
-                      src="https://pibook.vn/upload/products/63114_11_06_20_HSJA2O66.jpg"
-                      alt=""
-                    />
-                  </div> -->
-                </div>
-                <div class="product-content-right">
-                  <div class="product-content-right-product-name">
-                    <h3>{{IDGenres.title}}</h3>
-                    <p>
-                      Nhà xuất bản: <a href="">{{IDGenres.supplierName}}</a>
-                    </p>
-                    <p>Nhà phát hành: <a href="">PiBook</a></p>
-                    <p>Tác giả: <a href="">{{IDGenres.authorName}}</a></p>
-                  </div>
-                  <div class="product-content-right-product-info">
-                    <div class="product-info-rating mr-10">
-                      <span>4.92</span>
-                      <span style="display: inline-block">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                      </span>
-                    </div>
-                    <div class="product-info-vote mr-10">
-                      <div class="display-number">25</div>
-                      vote
-                    </div>
-                    <div class="product-info-sell-count mr-10">
-                      <div class="display-number">27</div>
-                      đã bán
-                    </div>
-                  </div>
-                  <div class="product-content-right-product-price">
-                    <p>{{IDGenres.price}} <sup>đ</sup></p>
-                  </div>
-                  <div class="product-content-right-product-quantity">
-                    <div class="catalog-product-details-discount">
-                      <div class="product-view-quantity-box d-flex">
-                        <span>Số lượng:</span>
-                      </div>
-                      <div class="product-view-quantity-box-block">
-                        <a
-                          ><span class="btnGiam">
-                            <i class="fa-solid fa-minus"></i> </span
-                        ></a>
-                        <span class="quanty-product"> 1 </span>
+          <div class="content-main">
+            <div class="grid">
+              <div class="grid__row" style="justify-content: center">
+                <div
+                  class="grid__column-10"
+                  style="padding: 20px; font-size: 1.6rem"
+                >
+                  <div class="form-group row" style="padding-bottom: 20px">
+                    <div class="col-md-6">
+                      <label for=""
+                        >Họ Tên
 
-                        <a
-                          ><span class="btnTang">
-                            <i class="fa-solid fa-plus"></i> </span
-                        ></a>
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="email"
+                        value="Đỗ Tiến Tài"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for=""
+                        >Số Điện Thoại
+
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="soDienThoai"
+                        value="0375538686"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row" style="padding-bottom: 20px">
+                    <div class="col-md-6">
+                      <label for=""
+                        >Email
+
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="email"
+                        value="dotientai20031404@gmail.com"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for=""
+                        >Địa Chỉ
+
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="soDienThoai"
+                        value="Hưng Yên"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row" style="padding-bottom: 20px">
+                    <div class="col-md-6">
+                      <label for=""
+                        >Ngày Sinh
+
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="email"
+                        value="14/04/2003"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for=""
+                        >Giới Tính
+
+                        <span class="text-danger">*</span>
+                      </label>
+                      <div class="form-check">
+                        <label
+                          for="paymentOnDelivery"
+                          class="form-check-label text-sm"
+                        >
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="paymentMethod"
+                          />
+                          Nam
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <label
+                          for="paymentViaBank"
+                          class="form-check-label text-sm"
+                        >
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="paymentMethod"
+                          />
+                          Nữ
+                        </label>
                       </div>
                     </div>
                   </div>
-                  <div class="product-content-right-product-transport">
-                    <p>Vận chuyển : <i class="fa-solid fa-truck"></i></p>
-                    <div class="transport-address">
-                      <div class="transport-province">
-                        <select
-                          name="city"
-                          id="CityAddressDropdowList"
-                          class="form-control"
-                        >
-                          <option value="00">-- Chọn thành phố --</option>
-                        </select>
-                      </div>
-                      <div class="transport-district">
-                        <select
-                          name="district"
-                          id="CityAddressDropdowList"
-                          class="form-control"
-                        >
-                          <option value="000">-- Chọn quận huyện --</option>
-                        </select>
-                      </div>
+                  <div class="col-12 bg-white">
+                    <div class="mt-4 text-center">
+                      <hr />
+                      <button
+                        type="button"
+                        class="btn btn-secondary mr-3"
+                        style="
+                          padding: 1rem;
+                          font-size: 1.6rem;
+                          margin-right: 1.6rem;
+                        "
+                      >
+                        Quay lại</button
+                      ><button
+                        class="btn btn-danger"
+                        style="
+                          padding: 1rem;
+                          font-size: 1.6rem;
+                          background: red;
+                          color: #fff;
+                        "
+                      >
+                        Lưu
+                      </button>
                     </div>
                   </div>
-                  <div class="product-content-right-product-list">
-                    <ul class="product-list">
-                      <li class="product-list-item">
-                        <span>Khối lượng: <strong>300 g</strong></span>
-                      </li>
-                      <li class="product-list-item">
-                        <span>Phí vận chuyển: <strong>15.000d</strong></span>
-                      </li>
-                      <li class="product-list-item">
-                        <span
-                          ><strong>Tặng Bookmark</strong> lung linh cho tất cả
-                          các đơn hàng.</span
-                        >
-                      </li>
-                      <li class="product-list-item">
-                        <span
-                          ><strong>Tặng Sổ tay</strong> siêu xinh cho đơn hàng
-                          từ 200K</span
-                        >
-                      </li>
-                      <li class="product-list-item">
-                        <span
-                          ><strong>Freeship 5K</strong> cho đơn trên 150K nhập
-                          mã là <strong>FREE150</strong> . Từ ngày
-                          01/10-31/10/2023</span
-                        >
-                      </li>
-                      <li class="product-list-item">
-                        <span
-                          ><strong>​Freeship 10K</strong> cho đơn trên 250K nhập
-                          mã là <strong>FREE250</strong> . Từ ngày
-                          01/10-31/10/2023</span
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="product-cash-btn grid__column-6">
-                  <button class="btn btn-add-to-cart width-35">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    Thêm vào giỏ hàng
-                  </button>
-
-                  <button class="btn btn-order width-35">Mua ngay</button>
                 </div>
               </div>
             </div>
@@ -330,7 +386,7 @@
       <!-- End Container -->
       <!--  -->
       <!-- Start Footer -->
-      <footer class="app_footer">
+      <!-- <footer class="app_footer">
         <div class="grid">
           <div class="footer-info">
             <div class="footer__letter">
@@ -434,10 +490,11 @@
             </div>
           </div>
         </div>
-      </footer>
+      </footer> -->
       <!-- End Footer -->
+
+      <!-- <script src="./assets/js/angular.js"></script>
+      <script src="./assets/js/global.js"></script> -->
     </div>
   </body>
-
-  <script type="module" src="./assets/js/productdetail.js"></script>
 </html>

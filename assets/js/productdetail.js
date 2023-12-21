@@ -1,20 +1,21 @@
 import { Notifi, ProDetail } from "./prodetailService.js";
-import fetchApi from "./fetchAPI.js";
+//import fetchApi from "./fetchAPI.js";
+import { home } from "./data.js";
 
 // lấy id của sản phẩm
 var urlObject = new URL(window.location.href);
 var id = urlObject.searchParams.get("id");
 console.log(id);
 
-// thông báo
-const contentNotifi = document.querySelector(".header__notification-list");
-//lấy dữ liệu từ ds.json "home" Notifi
-const notifis = await fetchApi.get("/notifi").then((response) => {
-  return response.json();
-});
-// render ra dữ liệu thông báo
-const htmlNotifi = notifis.map((notifi) => Notifi({ data: notifi }));
-contentNotifi.innerHTML = htmlNotifi.join("");
+// // thông báo
+// const contentNotifi = document.querySelector(".header__notification-list");
+// //lấy dữ liệu từ ds.json "home" Notifi
+// const notifis = await fetchApi.get("/notifi").then((response) => {
+//   return response.json();
+// });
+// // render ra dữ liệu thông báo
+// const htmlNotifi = notifis.map((notifi) => Notifi({ data: notifi }));
+// contentNotifi.innerHTML = htmlNotifi.join("");
 
 // // // hometitle
 // const contentHomeTitle = document.querySelector(".home-item");
@@ -31,8 +32,8 @@ contentNotifi.innerHTML = htmlNotifi.join("");
 const contentProduct = document.querySelector(".product-content");
 
 // Lấy dữ liệu từ API
-const response = await fetchApi.get("/home");
-const products = await response.json();
+const response = home;
+const products = home;
 
 // Lọc sản phẩm theo id
 const product = products
