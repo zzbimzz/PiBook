@@ -25,6 +25,39 @@ const notifis = notifi;
 const htmls = books.map((book) => Home({ data: book }));
 contentMain.innerHTML += htmls.join("");
 
+const mainProduct = document.querySelectorAll(".main-product");
+console.log(
+  "🚀 ~ file: homeService.js:58 ~ setTimeout ~ mainProduct:",
+  mainProduct
+);
+
+let isShow = false;
+
+mainProduct.forEach((e) => {
+  const btnShowMore = e.querySelector(".home-btn-link");
+  const showMore = e.querySelectorAll(".product-item:nth-child(n + 11)");
+
+  btnShowMore.onclick = () => {
+    if (!isShow) {
+      isShow = true;
+      showMore.forEach((x) => (x.style.display = "block"));
+      btnShowMore.innerText = "Thu gọn";
+    } else {
+      isShow = false;
+      showMore.forEach((x) => (x.style.display = "none"));
+      btnShowMore.innerText = "Xem thêm";
+    }
+  };
+});
+
+// function showMoreProducts() {
+//   const showMore = document.querySelector(".product-item:nth-child(n + 11)");
+//   console.log(
+//     "🚀 ~ file: homeService.js:81 ~ showMoreProducts ~ showMore:",
+//     showMore
+//   );
+// }
+
 // render ra dữ liệu danh mục
 const htmlgenre = menus.map((menu) => Menu({ data: menu }));
 contentMenu.innerHTML += htmlgenre.join("");
@@ -32,3 +65,4 @@ contentMenu.innerHTML += htmlgenre.join("");
 // render ra dữ liệu thông báo
 const htmlNotifi = notifis.map((notifi) => Notifi({ data: notifi }));
 contentNotifi.innerHTML = htmlNotifi.join("");
+//

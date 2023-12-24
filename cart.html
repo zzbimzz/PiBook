@@ -71,6 +71,19 @@
                         <i class="fa-solid fa-bell"></i>
                         <span>Thông báo</span>
                       </a>
+                      <!-- Thong bao -->
+                      <div class="header__notification">
+                        <header class="header__notification-head">
+                          <h3>Thông báo mới nhận</h3>
+                        </header>
+                        <ul class="header__notification-list"></ul>
+                        <footer class="header__notification-footer">
+                          <a href="" class="header__notification-btn"
+                            >Xem tất cả</a
+                          >
+                        </footer>
+                      </div>
+                      <!-- End thong bao -->
                     </div>
                   </div>
                   <div class="header__info-cart">
@@ -81,15 +94,40 @@
                       </a>
                       <!-- List cart -->
                       <div class="header-cart-list">
-                        <img
-                          src="https://th.bing.com/th/id/OIP.FKH0V4dg1bUbHOPRz2mPewHaE7?w=273&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                          alt=""
-                          class="header-no-cart-img"
-                        />
-                        <span class="header-cart-list-no-cart-msg"
-                          >chua co san pham</span
-                        >
-                        <!-- <h4 class="header__cart-heading">san pham da them</h4> -->
+                        <ul class="header__cart-list-item">
+                          <li class="header__cart-item">
+                            <img
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTatq8NHEy_VE24mRfp8_GogUQNaPiF9AKYzQ&amp;usqp=CAU"
+                              alt=""
+                              class="header__cart-img"
+                            />
+                            <div class="header__cart-item-info">
+                              <div class="header__cart-item-head">
+                                <h5 class="header__cart-item-name">abc</h5>
+                                <div class="header__cart-item-price-wrap">
+                                  <span class="header__cart-item-price">
+                                    abc</span
+                                  >
+
+                                  <span class="header__cart-item-multiply"
+                                    >x</span
+                                  >
+                                  <span class="header__cart-item-quantity"
+                                    >abc</span
+                                  >
+                                </div>
+                              </div>
+                              <div class="header__cart-item-body">
+                                <span class="header__cart-item-description"
+                                  >Chi tiết</span
+                                >
+                                <span class="header__cart-item-remove"
+                                  >Xóa</span
+                                >
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                       <!-- End list cart -->
                     </div>
@@ -346,4 +384,6 @@
 
   <script src="./assets/js/productdetail.js"></script>
   <script src="./assets/js/cart.js"></script>
+  <script src="./assets/js/headerCart.js"></script>
+  <script type="module" src="./assets/js/headerInfo.js"></script>
 </html>

@@ -55,24 +55,24 @@ function bookItem({ data }) {
 function Home({ data }) {
   return `
   <div class="main-product">
-  <h2 class="main-product-text main-backgr">${data.title}</h2>
-  <div class="main-menu">
-    <h4 class="main-menu-text">
-      <a href="" class="main-menu-link btn">Deal hot trong ngày</a>
-    </h4>
-    <h4 class="main-menu-text">
-      <a href="" class="main-menu-link btn">Sách hot/Giảm sốc</a>
-    </h4>
-  </div>
-  <div class="main-product-list">
-    <div class="list-Item grid__row" style="justify-content: space-between;">
-   ${data.listBooks.map((book) => bookItem({ data: book }))}
+    <h2 class="main-product-text main-backgr">${data.title}</h2>
+    <div class="main-menu">
+      <h4 class="main-menu-text">
+        <a href="" class="main-menu-link btn">Deal hot trong ngày</a>
+      </h4>
+      <h4 class="main-menu-text">
+        <a href="" class="main-menu-link btn">Sách hot/Giảm sốc</a>
+      </h4>
     </div>
-    <div class="home-product-btn">
-      <a href="javascript:void(0);" class="home-btn-link btn" onclick="showMoreProducts()">Xem thêm </a>
+    <div class="main-product-list">
+      <div class="list-Item grid__row" style="justify-content: space-between;">
+    ${data.listBooks.map((book) => bookItem({ data: book }))}
+      </div>
+      <div class="home-product-btn">
+        <button  class="home-btn-link btn">Xem thêm </button>
+      </div>
     </div>
   </div>
-</div>
     `;
 }
 

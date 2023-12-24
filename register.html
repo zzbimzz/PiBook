@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="./assets/fonts/fontawesome-free-6.4.0-web/css/all.css"
     />
+
     <link rel="stylesheet" href="./assets/css/grid.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/base.css" />
@@ -137,7 +138,7 @@
                     <a href="./index.html" title="Tới trang chủ">Trang chủ</a>
                   </li>
                   <li class="home-item">
-                    <strong>ĐĂNG NHẬP</strong>
+                    <strong>ĐĂNG KÝ</strong>
                   </li>
                 </ol>
               </div>
@@ -149,40 +150,79 @@
             <div class="grid__row">
               <div class="home-main">
                 <div class="home-login grid__row">
+                  <!-- Form Đăng ký -->
                   <div
-                    class="grid__column-6 login-form-1 bg-light"
+                    class="grid__column-6 login-form-2"
                     style="margin-left: 25%"
                   >
-                    <h3>Đăng Nhập</h3>
-                    <!-- form Login -->
-                    <form id="form__login" onsubmit="return signIn(this);">
+                    <h3>Đăng Ký Thành Viên</h3>
+                    <form id="form-register" onsubmit="return signUp(this);">
                       <div class="form-login-account mag-bt-5per">
                         <input
-                          name="username"
+                          id="name"
+                          name="name"
                           type="text"
-                          placeholder="Email/SĐT*"
+                          placeholder="Họ tên*"
                           class="form-control wi-input"
                         />
                       </div>
 
                       <div class="form-login-password mag-bt-5per">
                         <input
-                          name="password"
+                          id="email"
+                          name="email"
+                          type="text"
+                          placeholder="Email*"
+                          class="form-control wi-input"
+                        />
+                      </div>
+                      <div class="form-login-password mag-bt-5per">
+                        <input
+                          id="phone"
+                          name="phone"
+                          type="text"
+                          placeholder="Số điện thoại*"
+                          class="form-control wi-input"
+                        />
+                      </div>
+                      <div class="form-login-account mag-bt-5per">
+                        <input
+                          id="address"
+                          name="address"
+                          type="text"
+                          placeholder="Địa chỉ*"
+                          class="form-control wi-input"
+                        />
+                      </div>
+                      <div class="form-login-account mag-bt-5per">
+                        <input
+                          id="userName"
+                          name="userName"
+                          type="text"
+                          placeholder="Tên đăng nhập*"
+                          class="form-control wi-input"
+                        />
+                      </div>
+                      <div class="form-login-password mag-bt-5per">
+                        <input
+                          id="passWord"
+                          name="passWord"
                           type="password"
                           placeholder="Mật khẩu*"
                           class="form-control wi-input"
                         />
                       </div>
-                      <div class="form-login-btn">
+
+                      <div id="form-register-btn" class="form-register-btn">
                         <div class="home-product-btn">
                           <button type="submit" class="home-btn-link btn">
-                            Đăng Nhập
+                            Đăng Ký
                           </button>
                         </div>
                       </div>
                       <div>
-                        <a href="./register.html" style="font-size: 1.6rem"
-                          >Chưa có tài khoản</a
+                        <a href="./login.html" style="font-size: 1.6rem"
+                          >Đã có tài khoản</a
                         >
                       </div>
                     </form>
@@ -303,7 +343,8 @@
       </footer>
       <!-- End Footer -->
     </div>
-
-    <script src="./assets/js/login.js"></script>
+    <!-- <script src="./assets/js/angular.js"></script>
+    <script src="./assets/js/global.js"></script> -->
+    <script src="./assets/js/register.js"></script>
   </body>
 </html>

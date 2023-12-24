@@ -1,84 +1,56 @@
-const form = document.forms["form-register"];
+// Hàm đăng nhập
+function signIn(form) {
+  // Lấy giá trị từ các trường nhập liệu
+  var username = form.username.value;
+  var password = form.password.value;
 
-//const btnLg = document.querySelector(".form-login-btn");
-import convertFormData from "../js/convertFormData.js";
-const formDataObject = {};
-const btnRegister = document.querySelector("#form-register-btn");
-var app = angular.module("AppBanHang", []);
+  // Lấy danh sách người dùng từ Local Storage
+  var userList = getListUser();
 
-app.controller("HomeLogin", function ($scope, $http) {
-  // khởi tạo biến
-  $scope.userName = "";
-  $scope.password = "";
-  $scope.dataUser;
+  // Kiểm tra xem có tồn tại tài khoản trong danh sách không
+  var loggedInUser = userList.find(function (user) {
+    return user.username === username && user.password === password;
+  });
 
-  // start login
+  // Kiểm tra xem người dùng có phải là admin hay không
+  var isAdmin = loggedInUser && loggedInUser.username === "admin";
 
-  $scope.login = function () {
-    var data = {
-      userName: $scope.userName,
-      password: $scope.password,
-    };
-    $http({
-      method: "POST",
-      url: current_url + "/api-user/User/login",
-      data: JSON.stringify(data),
-    }).then(function (response) {
-      console.log(response);
-      $scope.dataUser = response.data;
+  // Nếu tồn tại và là admin, đăng nhập thành công
+  if (isAdmin) {
+    alert("Đăng nhập thành công với tư cách admin!");
+    // Chuyển hướng đến trang MainAdmin.html
+    window.location.href = "Admin/MainAdmin.html";
+  } else if (loggedInUser) {
+    // Nếu tồn tại, đăng nhập thành công
+    alert("Đăng nhập thành công!");
+    // Chuyển hướng đến trang index.html
+    window.location.href = "index.html";
+  } else {
+    // Nếu không tồn tại, thông báo lỗi
+    alert("Đăng nhập thất bại. Vui lòng kiểm tra lại tài khoản và mật khẩu.");
+  }
 
-      switch ($scope.dataUser.role) {
-        case true:
-          // xử lý khi có quyền truy cập
-          if ($scope.dataUser.userID) {
-            console.log($scope.dataUser.userID);
-            window.location.href = `./Admin/MainAdmin.html?id=${$scope.dataUser.userID}`;
-            localStorage.setItem("userID", $scope.dataUser.userID);
-          } else {
-            console.log("Không có ID để chuyển hướng.");
-          }
-          break;
+  // Ngăn chặn form được submit và reload trang
+  return false;
+}
 
-        case false:
-          if ($scope.dataUser.userID) {
-            window.location.href = `./index.html?id=${$scope.dataUser.userID}`;
-            localStorage.setItem("userID", $scope.dataUser.userID);
-          } else {
-            console.log("Không có ID để chuyển hướng.");
-          }
-          break;
-        default:
-          console.log($scope.dataUser.role);
-      }
-    });
-  };
+// Hàm lấy danh sách người dùng từ Local Storage
+function getListUser() {
+  return JSON.parse(window.localStorage.getItem("ListUser")) || [];
+}
 
-  // end login
+// Hàm thêm người dùng vào danh sách
+function addUser(username, password) {
+  var userList = getListUser();
+  var newUser = { username: username, password: password };
+  userList.push(newUser);
+  saveListUser(userList);
+}
 
-  // start RegisterUser
+// Hàm lưu danh sách người dùng vào Local Storage
+function saveListUser(userList) {
+  window.localStorage.setItem("ListUser", JSON.stringify(userList));
+}
 
-  $scope.CreateUser = function (data) {
-    console.log("create");
-
-    $http({
-      method: "POST",
-      data,
-      url: current_url + "/api-user/registerUser/create-registerUser",
-    }).then(function (response) {
-      alert("Đăng ký thành công thành công");
-      location.reload();
-    });
-  };
-  // end RegisterUser
-
-  // sự kiện nhấn vào nút đăng ký
-  btnRegister.onclick = () => {
-    $scope.CreateUser(formDataObject);
-  };
-});
-
-// xử lý các sự kiện submit
-form.onsubmit = (e) => {
-  e.preventDefault();
-  Object.assign(formDataObject, convertFormData(form));
-};
+// Thêm người dùng admin
+addUser("admin", "adminpassword");

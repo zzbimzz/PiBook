@@ -1,13 +1,10 @@
-import fetchApi from "./fetAPI.js";
-
 import BookList from "./sanphamService.js";
+import { home, menu, notifi } from "./dataAdmin.js";
 
 // giao diện home
 const contentMain = document.querySelector(".table tbody");
 // lấy dữ liệu từ db.json " home" Sách
-const booklists = await fetchApi.get("/home").then((response) => {
-  return response.json();
-});
+const booklists = home;
 
 let books = [];
 

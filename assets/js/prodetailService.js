@@ -1,4 +1,4 @@
-import fetchApi from "./fetchAPI.js";
+//import fetchApi from "./fetchAPI.js";
 
 // hiển thị thông báo
 function Notifi({ data }) {
@@ -24,14 +24,6 @@ function Notifi({ data }) {
 </li>
   `;
 }
-
-// // hiển thị thể loại và tên sách
-// function HomeTitle({ data }) {
-//   return `
-
-//   <a href="#" title="Tới trang chủ">${data.title}</a>
-//   `;
-// }
 
 // hiển thị chi tiết sản phẩm
 function ProDetail({ data }) {

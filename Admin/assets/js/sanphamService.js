@@ -1,5 +1,3 @@
-import fetchApi from "./fetAPI.js";
-
 //
 function bookList({ data }) {
   return `
