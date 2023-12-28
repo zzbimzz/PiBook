@@ -53,4 +53,4 @@ function saveListUser(userList) {
 }
 
 // Thêm người dùng admin
-addUser("admin", "adminpassword");
+addUser("admin", "123");

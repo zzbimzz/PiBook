@@ -57,6 +57,7 @@
   color: #888;
   font-weight: 400;
 }
+
 .header__search-list {
   padding-left: 0;
   list-style: none;
@@ -76,9 +77,9 @@
   line-height: 38px;
 }
 
-/* .header__search-input-text ~ .header__search-menu {
+.header__search-input-text:focus ~ .header__search-menu {
   display: block;
-} */
+}
 
 /* End form */
 .header__search-btn {

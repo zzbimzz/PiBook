@@ -63,9 +63,7 @@
                         Kết quả tìm kiếm
                       </h4>
                       <ul class="header__search-list">
-                        <li class="header__search-list-item">
-                          <a href="/product.html?id={{book.bookID}}"></a>
-                        </li>
+                        <li class="header__search-list-item"></li>
                       </ul>
                     </div>
                   </div>
@@ -173,6 +171,15 @@
                           <a href="./login.html" class="header__info-item-link">
                             <i class="fa-solid fa-user-plus"></i>
                             <span>Đăng ký</span>
+                          </a>
+                        </li>
+                        <li class="header__info-item">
+                          <a
+                            href="./profileuser.html"
+                            class="header__info-item-link"
+                          >
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>Profile</span>
                           </a>
                         </li>
                       </ul>
@@ -316,7 +323,7 @@
             <!-- End Menu -->
           </div>
           <div class="content__main">
-            <!-- <div class="main-product">
+            <div class="main-product">
               <h2 class="main-product-text main-backgr">SÁCH BÁN CHẠY (HOT)</h2>
               <div class="main-menu">
                 <h4 class="main-menu-text">
@@ -329,8 +336,11 @@
               <div class="main-product-list">
                 <div class="list-Item grid__row">
                   <div class="grid__column-2-4 home-product-item">
-                    <a href="/product.html?id={{x.bookID}}">
-                      <img src="./assets/img/clothing1women.png" alt="" />
+                    <a href="/product.html?id=1">
+                      <img
+                        src="https://pibook.vn/upload/products/sieu-dich-vu-sieu-loi-nhuan-5.jpg"
+                        alt=""
+                      />
                       <a
                         class="home-product-item__name"
                         href=""
@@ -340,7 +350,7 @@
                       <span class="home-product-item__price-old"
                         >12.500.000₫</span
                       ><span class="home-product-item__price-current"
-                        ><b>abc</b></span
+                        ><b>99.900.000₫</b></span
                       >
                     </a>
                     <div class="home-product-item__action">
@@ -377,7 +387,7 @@
                   <a href="" class="home-btn-link btn">Xem thêm </a>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -495,6 +505,7 @@
       <script src="./assets/js/global.js"></script> -->
       <script type="module" src="./assets/js/home.js"></script>
       <script src="./assets/js/headerCart.js"></script>
+      <script type="module" src="./assets/js/headerSearch.js"></script>
     </div>
   </body>
 </html>

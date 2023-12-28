@@ -42,7 +42,7 @@ function ProDetail({ data }) {
         Nhà xuất bản: <a href="">PiBook</a>
       </p>
       <p>Nhà phát hành: <a href="">PiBook</a></p>
-      <p>Tác giả: <a href="">{{IDGenres.authorName}}</a></p>
+      <p>Tác giả: <a href="">PiBook</a></p>
     </div>
     <div class="product-content-right-product-info">
       <div class="product-info-rating mr-10">
