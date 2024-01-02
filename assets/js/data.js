@@ -12,6 +12,45 @@ let home = [
         ImageBook:
           "https://pibook.vn/upload/products/sieu-dich-vu-sieu-loi-nhuan-5.jpg",
       },
+      {
+        BookID: 22,
+        Title: "Book 22",
+        AuthorID: 1,
+        GenreID: 1,
+        Price: 19000,
+        Stock: 100,
+        ImageBook:
+          "https://pibook.vn/upload/products/nhat-ky-hanh-phuc-cua-cong-chua-fubao-1.png",
+      },
+      {
+        BookID: 23,
+        Title: "Book 23",
+        AuthorID: 1,
+        GenreID: 1,
+        Price: 19000,
+        Stock: 100,
+        ImageBook:
+          "https://pibook.vn/upload/products/da-ngau-xin-dung-hau-dau-tap-4-2.jpg",
+      },
+      {
+        BookID: 24,
+        Title: "Book 24",
+        AuthorID: 1,
+        GenreID: 1,
+        Price: 19000,
+        Stock: 100,
+        ImageBook:
+          "https://pibook.vn/upload/products/em-trai-hang-xom-buong-binh-qua-tap-5-1.jpg",
+      },
+      {
+        BookID: 25,
+        Title: "Book 25",
+        AuthorID: 1,
+        GenreID: 1,
+        Price: 19000,
+        Stock: 100,
+        ImageBook: "https://pibook.vn/upload/products/bi-an-ozon-tap-1-1.jpg",
+      },
     ],
   },
   {
@@ -25,7 +64,7 @@ let home = [
         Price: 19000,
         Stock: 100,
         ImageBook:
-          "https://pibook.vn/upload/products/song-xanh-khong-kho-5.jpg",
+          "https://pibook.vn/upload/products/cam-nang-tim-tri-ky-1.jpg",
       },
       {
         BookID: 3,

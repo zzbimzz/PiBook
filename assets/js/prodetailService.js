@@ -1,30 +1,5 @@
 //import fetchApi from "./fetchAPI.js";
 
-// hiển thị thông báo
-function Notifi({ data }) {
-  return `
-  <li
-  class="header__notification-item header__notification-item--viewed"
->
-  <a href="" class="header__notification-link">
-    <img
-      src="${data.imageTitle}"
-      alt=""
-      class="header__notification-img"
-    />
-    <div class="header__notification-info">
-      <span class="header__notification-name"
-        >${data.title}
-      </span>
-      <span class="header__notification-descrio"
-        >${data.note}
-      </span>
-    </div>
-  </a>
-</li>
-  `;
-}
-
 // hiển thị chi tiết sản phẩm
 function ProDetail({ data }) {
   return `
@@ -163,4 +138,4 @@ function ProDetail({ data }) {
   `;
 }
 
-export { Notifi, ProDetail };
+export { ProDetail };

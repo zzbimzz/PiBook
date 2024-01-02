@@ -40,6 +40,11 @@ html {
   padding-right: 5px;
   width: 19%;
 }
+.cl-2-4 {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 21%;
+}
 .grid__column-6 {
   padding-left: 5px;
   padding-right: 5px;
@@ -137,4 +142,13 @@ html {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
   }
+}
+.mg07rem {
+  margin: 0.7rem;
+}
+.col-lg-9 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
 }

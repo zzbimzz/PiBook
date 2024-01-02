@@ -25,11 +25,8 @@ const notifis = notifi;
 const htmls = books.map((book) => Home({ data: book }));
 contentMain.innerHTML += htmls.join("");
 
+// Nút ấn thêm và thu gọn
 const mainProduct = document.querySelectorAll(".main-product");
-console.log(
-  "🚀 ~ file: homeService.js:58 ~ setTimeout ~ mainProduct:",
-  mainProduct
-);
 
 let isShow = false;
 
@@ -49,14 +46,6 @@ mainProduct.forEach((e) => {
     }
   };
 });
-
-// function showMoreProducts() {
-//   const showMore = document.querySelector(".product-item:nth-child(n + 11)");
-//   console.log(
-//     "🚀 ~ file: homeService.js:81 ~ showMoreProducts ~ showMore:",
-//     showMore
-//   );
-// }
 
 // render ra dữ liệu danh mục
 const htmlgenre = menus.map((menu) => Menu({ data: menu }));

@@ -3,7 +3,7 @@
 // hiển thị ra các thông tin sách
 function bookItem({ data }) {
   return `
-      <div class="grid__column-2-4 home-product-item product-item">
+      <div class="grid__column-2-4 home-product-item product-item col l-2 m-5 c-12">
       <!-- <div class="home-product-item__img"></div> -->
       <a href="/product.html?id=${data.BookID}">
         <img src="${data.ImageBook}" alt="" />

@@ -905,3 +905,12 @@ footer a {
   border-color: #ef8400;
   cursor: pointer;
 }
+
+/* danh mục */
+.nav_child_item {
+  margin: 0.7rem;
+}
+.nav_child_item a {
+  text-decoration: none;
+  color: #000;
+}
